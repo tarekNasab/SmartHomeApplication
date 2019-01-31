@@ -1,0 +1,32 @@
+
+
+
+#get_started {
+
+    -moz-animation: ease-in;
+    -fx-background-color: #929aab;
+    -fx-text-fill: White;
+    -fx-font-size: 20px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+
+
+
+    }
+
+
+/*#get_started:hover{*/
+
+
+    /*-fx-background-color: #ffe8cf;*/
+    /*-fx-text-fill: #929aab;*/
+    /*-fx-font-size: 20px;*/
+    /*-fx-font-family: "Segoe UI";*/
+    /*-fx-font-weight: bold;*/
+
+
+
+/*}*/

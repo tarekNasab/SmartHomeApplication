@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.GetStartedController">
+    <children>
+      <AnchorPane prefHeight="520.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="smart_bk" fitHeight="420.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../43777.jpg" />
+               </image>
+            </ImageView>
+              <Button fx:id="get_started" layoutX="430.0" layoutY="295.0" onAction="#getStartedAction" prefHeight="54.0" prefWidth="160.0" stylesheets="@../styles/getStarted.css" text="Get Started" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
