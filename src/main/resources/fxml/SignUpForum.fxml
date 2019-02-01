@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.SignUpForum">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6F5FF;">
+         <children>
+            <TextField layoutX="359.0" layoutY="106.0" promptText="Your Name" />
+            <TextField layoutX="359.0" layoutY="155.0" promptText="Your Email" />
+            <TextField layoutX="359.0" layoutY="200.0" promptText="Your PassWord" />
+            <Label layoutX="272.0" layoutY="110.0" text="Name" textFill="#33313b">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="272.0" layoutY="159.0" text="Email" textFill="#33313b">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="272.0" layoutY="204.0" text="Password" textFill="#33313b">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="197.0" fitWidth="197.0" layoutX="36.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: colorAdjust;">
+               <image>
+                  <Image url="@../add-contact.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
