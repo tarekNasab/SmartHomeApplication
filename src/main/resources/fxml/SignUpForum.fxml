@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.SignUpForum">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.SignUpController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6F5FF;">
          <children>
@@ -35,7 +35,7 @@
                   <Image url="@../add-contact.png" />
                </image>
             </ImageView>
-            <Button layoutX="375.0" layoutY="264.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" text="SignUp" textFill="#33313b">
+            <Button layoutX="375.0" layoutY="264.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" text="SignUp" textFill="#33313b" onAction="#SignUpButton">
                <font>
                   <Font size="14.0" />
                </font>
