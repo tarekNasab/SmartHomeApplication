@@ -1,0 +1,32 @@
+
+
+
+#loginBK{
+
+    -fx-background-color: #33313b;
+
+}
+
+#loginB{
+
+
+    -fx-background-color: #e6f5ff;
+    -fx-text-fill: #33313b;
+    -fx-font-size: 20px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+    -webkit-transition-duration: 0.4s;
+
+}
+
+
+#loginB:hover{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 0 -2 2, 2, 1, 2;
+    -fx-background-radius: 8px, 8px, 8px, 8px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+    -fx-text-fill: #3c4f65;
+}
+

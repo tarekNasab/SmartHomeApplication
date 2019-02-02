@@ -9,48 +9,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.LogInController">
+<AnchorPane prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.LogInController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6F5FF;">
+      <AnchorPane fx:id="loginBK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/LoginStyle.css">
          <children>
-            <TextField layoutX="337.0" layoutY="200.0" promptText="example@mail...">
+            <TextField layoutX="84.0" layoutY="259.0" promptText="example@mail...">
                <font>
                   <Font size="13.0" />
                </font></TextField>
-            <TextField layoutX="337.0" layoutY="248.0" promptText="your password here">
+            <TextField layoutX="83.0" layoutY="311.0" promptText="your password here">
                <font>
                   <Font size="13.0" />
                </font></TextField>
-            <Label layoutX="255.0" layoutY="205.0" text="User Name" textFill="#33313b">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="260.0" layoutY="253.0" text="Password" textFill="#33313b">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <CheckBox layoutX="337.0" layoutY="294.0" mnemonicParsing="false" text="Remember me!" textFill="#33313b">
+            <CheckBox layoutX="84.0" layoutY="358.0" mnemonicParsing="false" text="Remember me!" textFill="#b1b0b5">
                <font>
                   <Font size="12.0" />
                </font></CheckBox>
-            <ImageView fitHeight="107.0" fitWidth="103.0" layoutX="374.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="74.0" layoutX="113.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Home.png" />
+                  <Image url="@../login.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="29.0" fitWidth="37.0" layoutX="216.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="userPng" fitHeight="29.0" fitWidth="30.0" layoutX="47.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../user.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="215.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="loginB" layoutX="103.0" layoutY="394.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Log in" textFill="#33313b" />
+            <ImageView fx:id="passPng" fitHeight="24.0" fitWidth="24.0" layoutX="48.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../padlock.png" />
+                  <Image url="@../password.png" />
                </image>
             </ImageView>
-            <Button layoutX="357.0" layoutY="326.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Log in" textFill="#33313b" />
+            <Label fx:id="alreadyLable" layoutX="85.0" layoutY="486.0" prefHeight="29.0" prefWidth="137.0" text="Already signed up?" textFill="#b1b0b5" underline="true" />
          </children>
       </AnchorPane>
    </children>
