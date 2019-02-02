@@ -30,3 +30,7 @@
     -fx-text-fill: #3c4f65;
 }
 
+.imageView{
+
+    -fx-alignment: center;
+}
