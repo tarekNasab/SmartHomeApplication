@@ -37,21 +37,18 @@ public class GetStartedController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        progressBar.setVisible(false);
+
 
     }
 
     @FXML
-    public void getStartedAction(ActionEvent event) throws IOException {
+    public void getStartedAction(ActionEvent userEvent) throws IOException {
 
 
-        progressBar.setVisible(true
-        );
-
-        // transaction to log in page when you click the button.
+        // transaction to Dashboard page when you click the button.
         Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/logInForum.fxml"));
         Scene homePageScene = new Scene(homePage);
-        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage appStage = (Stage) ((Node) userEvent.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
         appStage.show();
         //--------------------------------

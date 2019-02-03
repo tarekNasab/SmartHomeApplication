@@ -1,12 +1,189 @@
 
-
-#dbBK{
+#dbBK {
 
 
     -fx-background-color: #33313b;
 }
 
-#rightSidePan{
+#rightSidePan {
 
     -fx-background-color: #4a494f;
+}
+
+#lightButton {
+
+    -fx-background-color: #4a494f;
+    -fx-background-image: url("../light-bulbWhite.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#heatingButton {
+
+    -fx-background-color: #4a494f;
+    -fx-background-image: url("../thermometer.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+
+}
+
+#securityButton {
+
+    -fx-background-color: #4a494f;
+    -fx-background-image: url("../shield.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+
+}
+
+
+#kitchenButton {
+    -fx-background-color: #4a494f;
+    -fx-background-image: url("../kitchenWhite.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+
+#lightButton:hover {
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../light-bulb.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-insets: 0 0 -2 2, 2, 1, 2;
+    -fx-background-radius: 8px, 8px, 8px, 8px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#heatingButton:hover {
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../thermometerColored.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-insets: 0 0 -2 2, 2, 1, 2;
+    -fx-background-radius: 8px, 8px, 8px, 8px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+
+#autoModeOn {
+    -fx-background-color: linear-gradient(#f0ff35, #a9ff00),
+    radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.29), 5, 0.0, 0, 1);
+    -fx-text-fill: #395306;
+}
+
+#securityButton:hover {
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../shieldGreen.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-insets: 0 0 -2 2, 2, 1, 2;
+    -fx-background-radius: 8px, 8px, 8px, 8px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+
+#kitchenButton:hover {
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../kitchen.png");
+    -fx-background-size: 96px 96px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-insets: 0 0 -2 2, 2, 1, 2;
+    -fx-background-radius: 8px, 8px, 8px, 8px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+
+#autoModeOn:hover {
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+    #9d4024,
+    #d86e3a,
+    radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+
+
+}
+
+/*#autoModeOff{*/
+/*-fx-background-color:*/
+/*linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),*/
+/*#9d4024,*/
+/*#d86e3a,*/
+/*radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);*/
+
+
+/*}*/
+
+/*#autoModeOff:hover{*/
+/*-fx-background-color:*/
+/*linear-gradient(#f0ff35, #a9ff00),*/
+/*radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);*/
+/*-fx-background-radius: 6, 5;*/
+/*-fx-background-insets: 0, 1;*/
+/*-fx-effect: dropshadow( three-pass-box , rgba(255, 255, 255, 0.29), 5, 0.0 , 0 , 1 );*/
+/*-fx-text-fill: #395306;*/
+
+/*}*/
+
+
+#profileAvatar {
+
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../userWhite.png");
+    -fx-background-size: 64px 64px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+
+#profileAvatar:hover{
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../userOrang.png");
+    -fx-background-size: 72px 72px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-insets: 0 0 -2 2, 2, 1, 2;
+    -fx-background-radius: 8px, 8px, 8px, 8px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+
+
+
+#goBack{
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../go-backPurple.png");
+    -fx-background-size: 32px 32px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#goBack:hover{
+    -fx-background-color: #33313b;
+    -fx-background-image: url("../go-back.png");
+    -fx-background-size: 38px 38px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
 }

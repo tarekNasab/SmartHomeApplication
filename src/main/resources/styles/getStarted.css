@@ -13,8 +13,8 @@
     }
 
 
-.button:hover{
-    -fx-background-color: transparent;
+#get_started:hover{
+    -fx-background-color: #e6f5ff;
     -fx-background-insets: 0 0 -2 2, 2, 1, 2;
     -fx-background-radius: 8px, 8px, 8px, 8px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
@@ -9,12 +10,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dbBK" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/DashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="dbBK" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/DashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.DashBoardUserController">
    <children>
-      <Label fx:id="cosumizeLabel" layoutX="68.0" layoutY="468.0" text="Costumize" textFill="#c9c3c3" underline="true" />
-      <ToggleButton layoutX="59.0" layoutY="423.0" mnemonicParsing="false" text="Auto mode" />
-      <ImageView fx:id="profile" fitHeight="78.0" fitWidth="76.0" layoutX="58.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="cosumizeLabel" layoutX="52.0" layoutY="464.0" text="Costumize" textFill="#c9c3c3" underline="true" />
+      <ToggleButton fx:id="autoModeOn" layoutX="52.0" layoutY="427.0" mnemonicParsing="false" text="Auto mode On" />
+      <ImageView fx:id="dashboardLogo" fitHeight="61.0" fitWidth="56.0" layoutX="72.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../dashboard.png" />
          </image></ImageView>
@@ -32,29 +34,18 @@
                 <RowConstraints />
               </rowConstraints>
                <children>
-
-
-                  <ImageView fx:id="lighting" fitHeight="127.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-
-                     <image>
-                        <Image url="@../light-bulbWhite.png" />
-                     </image></ImageView>
-
-                  <ImageView fx:id="kitchen" fitHeight="258.0" fitWidth="96.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <image>
-                        <Image url="@../kitchenWhite.png" />
-                     </image></ImageView>
-                  <ImageView fx:id="heating" fitHeight="96.0" fitWidth="96.0" layoutX="10.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <image>
-                        <Image url="@../thermometer.png" />
-                     </image></ImageView>
-                  <ImageView fx:id="security" fitHeight="258.0" fitWidth="96.0" layoutX="10.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <image>
-                        <Image url="@../shield.png" />
-                     </image></ImageView>
+                  <Button fx:id="heatingButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" />
+                  <Button fx:id="securityButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.rowIndex="1" />
+                  <Button fx:id="lightButton" alignment="CENTER" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" />
+                  <Button fx:id="kitchenButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children></Pane>
-      <Label layoutX="59.0" layoutY="46.0" text="DASHBOARD" textFill="WHITE" />
+      <Label fx:id="dashboard" layoutX="56.0" layoutY="138.0" text="DASHBOARD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Button fx:id="profileAvatar" layoutY="273.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="199.0" />
+      <Button fx:id="goBack" layoutX="66.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="68.0" stylesheets="@../styles/DashboardStyle.css" />
    </children>
 </AnchorPane>
