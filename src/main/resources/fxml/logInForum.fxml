@@ -30,18 +30,18 @@
                   <Image url="@../login.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="userPng" fitHeight="29.0" fitWidth="30.0" layoutX="47.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="userPng" fitHeight="24.0" fitWidth="24.0" layoutX="49.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../user.png" />
                </image>
             </ImageView>
-            <Button fx:id="loginB" layoutX="103.0" layoutY="394.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Log in" textFill="#33313b" />
-            <ImageView fx:id="passPng" fitHeight="24.0" fitWidth="24.0" layoutX="48.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="loginB" layoutX="103.0" layoutY="394.0" mnemonicParsing="false" onAction="#logInAction" prefHeight="31.0" prefWidth="120.0" text="Log in" textFill="#33313b" />
+            <ImageView fx:id="passPng" fitHeight="24.0" fitWidth="24.0" layoutX="49.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../password.png" />
                </image>
             </ImageView>
-            <Label fx:id="alreadyLable" layoutX="85.0" layoutY="486.0" prefHeight="29.0" prefWidth="137.0" text="Already signed up?" textFill="#b1b0b5" underline="true" />
+            <Label fx:id="liginAdmin" layoutX="14.0" layoutY="562.0" onMouseClicked="#logInAdminAction" text="Log in as an Admin" textFill="#b1b0b5" />
          </children>
       </AnchorPane>
    </children>

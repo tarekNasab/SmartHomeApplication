@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="BK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/SignUpStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.SignUpForum">
+<AnchorPane fx:id="BK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/SignUpStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.SignUpController">
    <children>
       <AnchorPane fx:id="singUpBK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/SignUpStyle.css">
          <children>
             <TextField fx:id="nameSignUp" layoutX="79.0" layoutY="219.0" promptText="Your name here" />
             <TextField layoutX="79.0" layoutY="268.0" promptText="Your e-mail here" />
             <TextField layoutX="79.0" layoutY="313.0" promptText="Your password" />
-            <ImageView fitHeight="89.0" fitWidth="85.0" layoutX="108.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: colorAdjust;">
+            <ImageView fitHeight="89.0" fitWidth="85.0" layoutX="111.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: colorAdjust;">
                <image>
                   <Image url="@../users.png" />
                </image>

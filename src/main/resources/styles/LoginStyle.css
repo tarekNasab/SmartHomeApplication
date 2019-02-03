@@ -27,6 +27,15 @@
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
-    -fx-text-fill: #3c4f65;
+    -fx-text-fill: #e6f5ff;
 }
 
+.imageView{
+
+    -fx-alignment: center;
+}
+
+#liginAdmin:hover{
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
