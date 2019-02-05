@@ -1,10 +1,11 @@
-package com.matchit;
+package com.matchit.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.sun.xml.internal.ws.resources.SenderMessages;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class GetStartedController implements Initializable {
 
@@ -39,10 +41,14 @@ public class GetStartedController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
 
+
     }
 
     @FXML
     public void getStartedAction(ActionEvent userEvent) throws IOException {
+
+
+
 
 
         // transaction to Dashboard page when you click the button.
@@ -52,8 +58,6 @@ public class GetStartedController implements Initializable {
         appStage.setScene(homePageScene);
         appStage.show();
         //--------------------------------
-
-
 
     }
 

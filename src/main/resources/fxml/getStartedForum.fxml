@@ -2,12 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.GetStartedController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.GetStartedController">
     <children>
       <AnchorPane fx:id="smart" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/getStarted.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,7 +20,6 @@
             <Label fx:id="smart" layoutX="325.0" layoutY="142.0" prefHeight="54.0" prefWidth="170.0" stylesheets="@../styles/getStarted.css" text="SMART" textAlignment="CENTER" />
             <Label fx:id="to" layoutX="407.0" layoutY="118.0" text="TO" />
             <Label fx:id="homeLable" layoutX="438.0" layoutY="146.0" text="HOME" />
-            <ProgressIndicator layoutX="491.0" layoutY="362.0" prefHeight="30.0" prefWidth="33.0" />
          </children>
       </AnchorPane>
     </children>

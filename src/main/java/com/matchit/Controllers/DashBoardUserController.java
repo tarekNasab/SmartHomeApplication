@@ -1,4 +1,4 @@
-package com.matchit;
+package com.matchit.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

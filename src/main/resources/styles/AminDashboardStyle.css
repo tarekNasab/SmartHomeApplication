@@ -1,0 +1,30 @@
+#rootPanAdmin{
+
+    -fx-background-color: #33313b;
+
+}
+
+#rightPan{
+    -fx-background-color: #4a494f;
+
+
+}
+
+.tab-pane{
+    -fx-background-color:#4a494f ;
+}
+
+
+
+
+#addNewUserB{
+    -fx-background-color: #4a494f;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#setUpHomeB{
+    -fx-background-color: #4a494f;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}

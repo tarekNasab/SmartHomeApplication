@@ -1,4 +1,4 @@
-package com.matchit;
+package com.matchit.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,6 +36,8 @@ public class LogInController {
 
     @FXML
     public void logInAction(ActionEvent logInEvent) throws IOException {
+
+
         Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/DashboardUser.fxml"));
         Scene homePageScene = new Scene(homePage);
         Stage appStage = (Stage) ((Node) logInEvent.getSource()).getScene().getWindow();

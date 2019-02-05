@@ -174,16 +174,16 @@
 
 #goBack{
     -fx-background-color: #33313b;
-    -fx-background-image: url("../go-backPurple.png");
-    -fx-background-size: 32px 32px;
+    -fx-background-image: url("../GOBACK.png");
+    -fx-background-size: 24px 24px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
 #goBack:hover{
     -fx-background-color: #33313b;
-    -fx-background-image: url("../go-back.png");
-    -fx-background-size: 38px 38px;
+    -fx-background-image: url("../GOBACKRED.png");
+    -fx-background-size: 28px 28px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }

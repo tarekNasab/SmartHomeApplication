@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="BK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/SignUpStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.SignUpController">
+<AnchorPane fx:id="BK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/SignUpStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.SignUpController">
    <children>
       <AnchorPane fx:id="singUpBK" prefHeight="600.0" prefWidth="300.0" stylesheets="@../styles/SignUpStyle.css">
          <children>

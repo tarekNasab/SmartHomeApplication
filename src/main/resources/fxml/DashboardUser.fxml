@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dbBK" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/DashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.DashBoardUserController">
+<AnchorPane fx:id="dbBK" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/DashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.DashBoardUserController">
    <children>
       <Label fx:id="cosumizeLabel" layoutX="52.0" layoutY="464.0" text="Costumize" textFill="#c9c3c3" underline="true" />
       <ToggleButton fx:id="autoModeOn" layoutX="52.0" layoutY="427.0" mnemonicParsing="false" text="Auto mode On" />
@@ -46,6 +46,6 @@
             <Font name="System Bold" size="14.0" />
          </font></Label>
       <Button fx:id="profileAvatar" layoutY="273.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="199.0" />
-      <Button fx:id="goBack" layoutX="66.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="68.0" stylesheets="@../styles/DashboardStyle.css" />
+      <Button fx:id="goBack" layoutX="-6.0" layoutY="2.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="56.0" stylesheets="@../styles/DashboardStyle.css" />
    </children>
 </AnchorPane>
