@@ -47,6 +47,11 @@ public class LogInController {
 
     @FXML
     public void logInAdminAction(MouseEvent adminEvent) throws IOException {
-        System.out.println("Log in Admin!");
+        Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/AdminBoard.fxml"));
+        Scene homePageScene = new Scene(homePage);
+        Stage appStage = (Stage) ((Node) adminEvent.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
+
     }
 }
