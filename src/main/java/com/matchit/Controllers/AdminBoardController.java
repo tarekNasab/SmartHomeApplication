@@ -18,21 +18,22 @@ public class AdminBoardController implements Initializable {
     Admin admin =new Admin();  //  Instance of Admin
 
 
-
-
-
-
-
     @FXML
     public Pane rootPanAdmin;
     @FXML
-    public Pane rightPaneSetUpHome;
-    @FXML
     public VBox leftPane;
+    @FXML
+    public Button addUserButton;
+    @FXML
+    public Button homePlanButton;
     @FXML
     public Pane seperator;
     @FXML
     public Pane rightPaneAddUser;
+    @FXML
+    public Pane rightPaneSetupHome;
+    @FXML
+    public Button planHomeB;
 
 
 
@@ -40,7 +41,7 @@ public class AdminBoardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         rightPaneAddUser.setVisible(false);
-        rightPaneSetUpHome.setVisible(false);
+        rightPaneSetupHome.setVisible(false);
 
     }
 
@@ -48,9 +49,16 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     public void setUpHomeAction(ActionEvent setupAction){
-        rightPaneSetUpHome.setVisible(true);
+
+        rightPaneSetupHome.setVisible(true);
     }
 
+    @FXML
+    public void addUserAction(ActionEvent addUserAction){
+        rightPaneSetupHome.setVisible(false);
+
+        rightPaneAddUser.setVisible(true);
+    }
 
 
 
