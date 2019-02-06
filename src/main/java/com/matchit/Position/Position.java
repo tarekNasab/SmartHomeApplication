@@ -6,25 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-
-
-public class PositionInHome {
-    protected int positionID;
+public class Position {
     protected String positionName;
 
 
-
-    public PositionInHome(){
+    public Position() {
 
     }
 
 
-    public PositionInHome(int positionID, String positionName) {
+    public Position(String positionName) {
         super();
-        this.positionID = positionID;
         this.positionName = positionName;
     }
-
 
 
     public String getPositionName() {
@@ -32,22 +26,22 @@ public class PositionInHome {
     }
 
 
-
-    public void setPositionName(String positionName) {
-        positionName = positionName;
+    public void setPositionName(String positionname) {
+        positionName = positionname;
     }
 
 
 
-    public int getPositionID() {
-        return positionID;
-    }
 
 
-/*
-          Add new Position to THe HOME
- */
 
+
+
+
+
+    //Action Methods
+
+    //     Add new Position to THe HOME
     public static void AddtPosition(String positionName) {
         try {
             String sql = "insert into [position] (positionName) ";
@@ -68,11 +62,8 @@ public class PositionInHome {
     }
 
 
-    /*
-      Delet a POSITION FROM HOME Using  positionID
-     */
-
-     public static void DeleteUsingPosirionID(int positionID) {
+    //      Delet a POSITION FROM HOME Using  positionID
+    public static void DeletePosirionByID(int positionID) {
         try {
             String sql = "Delete from [position] where positionID =? ";
 
@@ -89,19 +80,17 @@ public class PositionInHome {
         }
     }
 
-    /*
-        Delet a POSITION FROM HOME USING positionName
-     */
 
+//        Delet a POSITION FROM HOME USING positionName
 
-    public static void DeleteUsingPositionName(String positionName) {
+    public static void DeletePositionByName(String positionName) {
         try {
             String sql = "Delete from [position] where positionName =? ";
 
             PreparedStatement ps = ConnectionConfig.prepareStatement(sql);
             // 3. Set the parameters
 
-            ps.setString(1,positionName);
+            ps.setString(1, positionName);
             ps.executeUpdate();
             System.out.println("Position deleted.");
             // display(r);
@@ -111,7 +100,7 @@ public class PositionInHome {
         }
     }
 
-    public static void checkPosition(){
+    public static void checkPosition() {
 
     }
 

@@ -1,30 +1,106 @@
-#rootPanAdmin{
+#rootPanAdmin {
 
     -fx-background-color: #33313b;
 
 }
 
-#rightPan{
-    -fx-background-color: #4a494f;
-
-
+#seperator{
+    -fx-background-color: #d1e2e8;
 }
 
-.tab-pane{
-    -fx-background-color:#4a494f ;
-}
-
-
-
-
-#addNewUserB{
+.button{
+    -fx-text-fill: #ffff;
     -fx-background-color: #4a494f;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
-#setUpHomeB{
-    -fx-background-color: #4a494f;
+.button:hover{
+
+    -fx-text-fill: #33313b;
+    -fx-background-color: white;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
+
+
+#planHomeB {
+-fx-background-color: #4a494f;
+-fx-background-image: url("../plans.png");
+-fx-background-size: 96px 96px;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+}
+
+#planHomeB:hover {
+-fx-background-color: #939199;
+-fx-background-image: url("../plansOrang.png");
+-fx-background-size: 96px 96px;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+}
+
+
+
+/*#rightPan {*/
+    /*-fx-background-color: #4a494f;*/
+
+
+/*}*/
+
+/*.tab-pane {*/
+    /*-fx-background-color: #4a494f;*/
+/*}*/
+
+
+/*#addNewUserButton {*/
+    /*-fx-text-fill: #ffff;*/
+    /*-fx-background-color: #4a494f;*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+/*}*/
+
+/*#setUpHomeB {*/
+    /*-fx-text: "Setup Home";*/
+    /*-fx-highlight-text-fill: white;*/
+    /*-fx-text-fill: white;*/
+    /*-fx-font-weight: bold;*/
+    /*-fx-border-color: white;*/
+    /*-fx-background-color: #4a494f;*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+/*}*/
+
+
+/*#addNewUserButton:hover {*/
+    /*-fx-text-fill: #4a494f;*/
+    /*-fx-background-color: #939199;*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+/*}*/
+
+/*#setUpHomeB:hover{*/
+    /*-fx-text-fill: #4a494f;*/
+    /*-fx-background-color: #939199;*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+/*}*/
+
+
+
+
+/*#planHomeB {*/
+    /*-fx-background-color: #4a494f;*/
+    /*-fx-background-image: url("../plans.png");*/
+    /*-fx-background-size: 96px 96px;*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+/*}*/
+
+/*#planHomeB:hover {*/
+    /*-fx-background-color: #939199;*/
+    /*-fx-background-image: url("../plansOrang.png");*/
+    /*-fx-background-size: 96px 96px;*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+/*}*/

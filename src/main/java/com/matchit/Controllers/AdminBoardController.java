@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,44 +22,58 @@ public class AdminBoardController implements Initializable {
 
 
 
+
     @FXML
     public Pane rootPanAdmin;
     @FXML
-    public AnchorPane addNewUserB;
+    public Pane rightPaneSetUpHome;
     @FXML
-    public PasswordField userPassEdit;
+    public VBox leftPane;
     @FXML
-    public TextField userEmailEdit;
+    public Pane seperator;
     @FXML
-    public TextField userFnameEdit;
-    @FXML
-    public Button addUserB;
+    public Pane rightPaneAddUser;
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        rightPaneAddUser.setVisible(false);
+        rightPaneSetUpHome.setVisible(false);
+
     }
+
+
 
     @FXML
-    public void addUserAction(ActionEvent newUser) {
-
-            String name, email, password;
-
-            name = userFnameEdit.getText().toString();
-            email = userEmailEdit.getText().toString();
-            password = userPassEdit.getText().toString();
-
-
-            if (!name.equalsIgnoreCase("") & !email.equalsIgnoreCase("") & !password.equalsIgnoreCase("")){
-                admin.addNewUser(name,email,password);
-            }
-
-            else if (email.equalsIgnoreCase("") || password.equalsIgnoreCase("") || email.equalsIgnoreCase("")){
-
-                System.out.println("Incomplete info!");
-            }
+    public void setUpHomeAction(ActionEvent setupAction){
+        rightPaneSetUpHome.setVisible(true);
     }
+
+
+
+
+//
+//    @FXML
+//    public void addUserAction(ActionEvent newUser) {
+//
+//            String name, email, password;
+//
+//            name = userFnameEdit.getText().toString();
+//            email = userEmailEdit.getText().toString();
+//            password = userPassEdit.getText().toString();
+//
+//
+//            if (!name.equalsIgnoreCase("") & !email.equalsIgnoreCase("") & !password.equalsIgnoreCase("")){
+//                admin.addNewUser(name,email,password);
+//            }
+//
+//            else if (email.equalsIgnoreCase("") || password.equalsIgnoreCase("") || email.equalsIgnoreCase("")){
+//
+//                System.out.println("Incomplete info!");
+//            }
+//    }
 
     }
 
