@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -18,22 +19,36 @@ public class AdminBoardController implements Initializable {
     Admin admin =new Admin();  //  Instance of Admin
 
 
+
     @FXML
-    public Pane rootPanAdmin;
+    private Pane rightPaneAddPosition;
+
     @FXML
-    public VBox leftPane;
+    private ImageView adminLogo;
+
     @FXML
-    public Button addUserButton;
+    private VBox leftPane;
+
     @FXML
-    public Button homePlanButton;
+    private Pane rootPanAdmin;
+
     @FXML
-    public Pane seperator;
+    private Button addUserButton;
+
     @FXML
-    public Pane rightPaneAddUser;
+    private Button homePlanButton;
+
     @FXML
-    public Pane rightPaneSetupHome;
+    private Button addPositionButton;
+
     @FXML
-    public Button planHomeB;
+    private Pane rightPaneSetupHome;
+
+    @FXML
+    private Pane seperator;
+
+    @FXML
+    private Pane rightPaneAddUser;
 
 
 
