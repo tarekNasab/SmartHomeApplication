@@ -19,6 +19,21 @@
         <name>Your Organisation</name>
     </organization>
 
+
+    <dependencies>
+
+        <!-- SQL Server dependency-->
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.0.0.jre10</version>
+        </dependency>
+
+    </dependencies>
+
+
+
     <build>
         <plugins>
             <plugin>
@@ -75,6 +90,7 @@
                         </goals>
                         <configuration>
                             <executable>${java.home}/bin/java</executable>
+                            <!--suppress UnresolvedMavenProperty -->
                             <commandlineArgs>${runfx.args}</commandlineArgs>
                         </configuration>
                     </execution>
