@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 
 <Pane fx:id="rootPanAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/AminDashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.AdminBoardController">
    <children>
-      <Pane fx:id="rightPaneSetUpHome" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AminDashboardStyle.css" />
-      <VBox fx:id="leftPane" layoutX="7.0" layoutY="281.0" prefHeight="230.0" prefWidth="232.0" stylesheets="@../styles/AminDashboardStyle.css">
-         <children>
-            <Button fx:id="addUserButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="58.0" prefWidth="234.0" text="Add new user" />
-            <Button fx:id="homePlanButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#setUpHomeAction" prefHeight="60.0" prefWidth="252.0" text="Home plan" />
-         </children></VBox>
-      <ImageView fitHeight="197.0" fitWidth="200.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-      <Pane fx:id="seperator" layoutX="241.0" layoutY="25.0" prefHeight="480.0" prefWidth="2.0" stylesheets="@../styles/AminDashboardStyle.css" />
-      <Pane fx:id="rightPaneAddUser" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AminDashboardStyle.css">
-         <children>
-            <Button fx:id="planHomeB" alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="151.0" prefWidth="174.0" stylesheets="@../styles/AminDashboardStyle.css" text="Add position" />
-         </children></Pane>
-
-
-
-
-
-
+      <TabPane fx:id="adminTabPane" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/AminDashboardStyle.css">
+        <tabs>
+          <Tab text="Add new User">
+            <content>
+              <AnchorPane fx:id="addNewUserB" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <PasswordField fx:id="userPassEdit" layoutX="303.0" layoutY="222.0" promptText="User password" />
+                        <TextField fx:id="userEmailEdit" layoutX="303.0" layoutY="179.0" promptText="User e-mail" />
+                        <TextField fx:id="userFnameEdit" layoutX="303.0" layoutY="135.0" promptText="User first name" />
+                        <Button fx:id="addUserB" layoutX="333.0" layoutY="288.0" mnemonicParsing="false" onAction="#addUserAction" text="Add new User" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="setUpHomeB" text="Setup Home">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </Pane>

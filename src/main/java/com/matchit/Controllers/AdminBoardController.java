@@ -1,5 +1,4 @@
 package com.matchit.Controllers;
-
 import com.matchit.User.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,71 +8,51 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class AdminBoardController implements Initializable {
-    Admin admin =new Admin();  //  Instance of Admin
 
-
-
-
-
+    Admin admin = new Admin();
 
 
     @FXML
     public Pane rootPanAdmin;
     @FXML
-    public Pane rightPaneSetUpHome;
+    public AnchorPane addNewUserB;
     @FXML
-    public VBox leftPane;
+    public PasswordField userPassEdit;
     @FXML
-    public Pane seperator;
+    public TextField userEmailEdit;
     @FXML
-    public Pane rightPaneAddUser;
+    public TextField userFnameEdit;
+    @FXML
+    public Button addUserB;
+
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        rightPaneAddUser.setVisible(false);
-        rightPaneSetUpHome.setVisible(false);
-
     }
-
-
 
     @FXML
-    public void setUpHomeAction(ActionEvent setupAction){
-        rightPaneSetUpHome.setVisible(true);
-    }
+    public void addUserAction(ActionEvent addUser){
 
-
-
-
-//
-//    @FXML
-//    public void addUserAction(ActionEvent newUser) {
-//
-//            String name, email, password;
-//
-//            name = userFnameEdit.getText().toString();
-//            email = userEmailEdit.getText().toString();
-//            password = userPassEdit.getText().toString();
-//
-//
-//            if (!name.equalsIgnoreCase("") & !email.equalsIgnoreCase("") & !password.equalsIgnoreCase("")){
-//                admin.addNewUser(name,email,password);
-//            }
-//
-//            else if (email.equalsIgnoreCase("") || password.equalsIgnoreCase("") || email.equalsIgnoreCase("")){
-//
-//                System.out.println("Incomplete info!");
-//            }
-//    }
+        Button button = new Button();
+        String name, email, password;
+        name = userFnameEdit.getText().toString();
+        email = userEmailEdit.getText().toString();
+        password = userPassEdit.getText().toString();
+        admin.addNewUser(name,email,password);
 
     }
 
+
+
+
+
+
+}
