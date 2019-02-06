@@ -1,5 +1,12 @@
 package com.matchit.User;
 
+import com.matchit.DB_Connection.ConnectionConfig;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+
 public class User {
     String userF_Name;
     String user_email;
@@ -64,5 +71,33 @@ public class User {
                 ", user_email='" + user_email + '\'' +
                 ", user_password='" + user_password + '\'' +
                 '}';
+    }
+
+
+
+
+
+    //Action methods
+
+    public void logInUser(String enteredEmail , String eneteredPass) throws SQLException {
+
+        String logInQuery = "SELECT * FROM [user] WHERE email = ? AND password = ?" ;
+        PreparedStatement logInStatement = ConnectionConfig.prepareStatement(logInQuery);
+
+        logInStatement.setString(1 , enteredEmail);
+        logInStatement.setString(2 , eneteredPass);
+
+        ResultSet userInfoSet = logInStatement.executeQuery();
+        ResultSetMetaData userInfoSetMD = userInfoSet.getMetaData();
+
+
+
+        if (userInfoSet.next()){
+            System.out.println("user can log in");
+        }
+
+        else if (!userInfoSet.isBeforeFirst()){
+            System.out.println("User can not log in");
+        }
     }
 }

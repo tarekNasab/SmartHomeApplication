@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="rootPanAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/AminDashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="rootPanAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/AminDashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.AdminBoardController">
    <children>
       <TabPane fx:id="adminTabPane" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/AminDashboardStyle.css">
         <tabs>
@@ -19,7 +19,7 @@
                         <PasswordField fx:id="userPassEdit" layoutX="303.0" layoutY="222.0" promptText="User password" />
                         <TextField fx:id="userEmailEdit" layoutX="303.0" layoutY="179.0" promptText="User e-mail" />
                         <TextField fx:id="userFnameEdit" layoutX="303.0" layoutY="135.0" promptText="User first name" />
-                        <Button layoutX="333.0" layoutY="288.0" mnemonicParsing="false" text="Add new User" />
+                        <Button fx:id="addUserB" layoutX="333.0" layoutY="288.0" mnemonicParsing="false" onAction="#addUserAction" text="Add new User" />
                      </children>
                   </AnchorPane>
             </content>

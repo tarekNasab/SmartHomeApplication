@@ -34,7 +34,7 @@ public class SignUpController implements Initializable {
 
 
     public void SignUpButton() {
-        Button signUpB = new Button();
+
 
         signUpB.setOnAction(event -> {
             String name, email, password;
@@ -42,6 +42,7 @@ public class SignUpController implements Initializable {
             name = nameSignUp.getText().toString();
             email=emailSignUp.getText().toString();
             password=passSignUp.getText().toString();
+            System.out.println(name+email+password);
         });
 
 

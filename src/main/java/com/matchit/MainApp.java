@@ -1,5 +1,6 @@
 package com.matchit;
 
+import com.sun.xml.internal.ws.dump.LoggingDumpTube;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -30,10 +31,13 @@ public class MainApp extends Application {
      * support. NetBeans ignores main().
      *
      * @param args the command line arguments
+     *
      */
     public static void main(String[] args) {
 
         launch(args);
+
+
     }
 
 }
