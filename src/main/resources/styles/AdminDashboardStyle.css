@@ -33,6 +33,9 @@
 -fx-background-position: center;
 }
 
+#positionNameLabel{
+    -fx-text-fill: white;
+}
 #planHomeB:hover {
 -fx-background-color: #939199;
 -fx-background-image: url("../plansOrang.png");

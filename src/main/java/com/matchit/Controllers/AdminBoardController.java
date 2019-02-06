@@ -50,6 +50,8 @@ public class AdminBoardController implements Initializable {
     @FXML
     private Pane rightPaneAddUser;
 
+    @FXML
+    private Button addButton;
 
 
     @Override
@@ -57,6 +59,7 @@ public class AdminBoardController implements Initializable {
 
         rightPaneAddUser.setVisible(false);
         rightPaneSetupHome.setVisible(false);
+        rightPaneAddPosition.setVisible(false);
 
     }
 
@@ -70,12 +73,18 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     public void addUserAction(ActionEvent addUserAction){
-        rightPaneSetupHome.setVisible(false);
-
         rightPaneAddUser.setVisible(true);
     }
 
+    @FXML
+    public void addPositionVeiw(ActionEvent addPositionAction){
+        rightPaneAddPosition.setVisible(true);
+    }
 
+    @FXML
+    public void addPositionAction(ActionEvent addPositionAction){
+
+    }
 
 //
 //    @FXML
