@@ -20,17 +20,17 @@
       </Button>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="67.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../user.png" />
+            <Image url="@../images/user.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="67.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../password.png" />
+            <Image url="@../images/password.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="106.0" fitWidth="92.0" layoutX="127.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../admin-with-cogwheels.png" />
+            <Image url="@../images/admin-with-cogwheels.png" />
          </image>
       </ImageView>
       <Label fx:id="goBackLabel" layoutX="16.0" layoutY="13.0" text="Go back" textFill="WHITE">

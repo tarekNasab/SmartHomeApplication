@@ -12,7 +12,7 @@
          <children>
             <ImageView fx:id="smart_bk" fitHeight="420.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../43777.jpg" />
+                  <Image url="@../images/43777.jpg" />
                </image>
             </ImageView>
               <Button fx:id="get_started" layoutX="430.0" layoutY="295.0" onAction="#getStartedAction" prefHeight="54.0" prefWidth="160.0" stylesheets="@../styles/getStarted.css" text="Get Started" />

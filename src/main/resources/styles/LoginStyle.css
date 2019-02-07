@@ -39,7 +39,7 @@
 #goBackButton{
 
     -fx-text-fill: #ffff;
-    -fx-background-image: url("../GOBACK.png");
+    -fx-background-image: url("../images/GOBACK.png");
     -fx-background-color: #33313b ;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;

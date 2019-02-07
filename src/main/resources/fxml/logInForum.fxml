@@ -25,18 +25,18 @@
                </font></CheckBox>
             <ImageView fitHeight="79.0" fitWidth="74.0" layoutX="113.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../login.png" />
+                  <Image url="@../images/login.png" />
                </image>
             </ImageView>
             <ImageView fx:id="userPng" fitHeight="24.0" fitWidth="24.0" layoutX="49.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../user.png" />
+                  <Image url="@../images/user.png" />
                </image>
             </ImageView>
             <Button fx:id="loginB" layoutX="103.0" layoutY="394.0" mnemonicParsing="false" onAction="#logInAction" prefHeight="30.0" prefWidth="120.0" text="Log in" textFill="#33313b" />
             <ImageView fx:id="passPng" fitHeight="24.0" fitWidth="24.0" layoutX="49.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../password.png" />
+                  <Image url="@../images/password.png" />
                </image>
             </ImageView>
             <Label fx:id="liginAdmin" layoutX="14.0" layoutY="562.0" onMouseClicked="#logInAdminAction" text="Log in as an Admin" textFill="#b1b0b5" />

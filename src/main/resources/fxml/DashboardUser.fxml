@@ -18,7 +18,7 @@
       <ToggleButton fx:id="autoModeOn" layoutX="52.0" layoutY="427.0" mnemonicParsing="false" text="Auto mode On" />
       <ImageView fx:id="dashboardLogo" fitHeight="61.0" fitWidth="56.0" layoutX="72.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../dashboard.png" />
+            <Image url="@../images/dashboard.png" />
          </image></ImageView>
       <Pane fx:id="rightSidePan" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
          <children>

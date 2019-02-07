@@ -13,7 +13,7 @@
 #lightButton {
 
     -fx-background-color: #4a494f;
-    -fx-background-image: url("../light-bulbWhite.png");
+    -fx-background-image: url("../images/light-bulbWhite.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -22,7 +22,7 @@
 #heatingButton {
 
     -fx-background-color: #4a494f;
-    -fx-background-image: url("../thermometer.png");
+    -fx-background-image: url("../images/thermometer.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -33,7 +33,7 @@
 #securityButton {
 
     -fx-background-color: #4a494f;
-    -fx-background-image: url("../shield.png");
+    -fx-background-image: url("../images/shield.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -44,7 +44,7 @@
 
 #kitchenButton {
     -fx-background-color: #4a494f;
-    -fx-background-image: url("../kitchenWhite.png");
+    -fx-background-image: url("../images/kitchenWhite.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -53,7 +53,7 @@
 
 #lightButton:hover {
     -fx-background-color: #33313b;
-    -fx-background-image: url("../light-bulb.png");
+    -fx-background-image: url("../images/light-bulb.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -66,7 +66,7 @@
 
 #heatingButton:hover {
     -fx-background-color: #33313b;
-    -fx-background-image: url("../thermometerColored.png");
+    -fx-background-image: url("../images/thermometerColored.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -89,7 +89,7 @@
 
 #securityButton:hover {
     -fx-background-color: #33313b;
-    -fx-background-image: url("../shieldGreen.png");
+    -fx-background-image: url("../images/shieldGreen.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -103,7 +103,7 @@
 
 #kitchenButton:hover {
     -fx-background-color: #33313b;
-    -fx-background-image: url("../kitchen.png");
+    -fx-background-image: url("../images/kitchen.png");
     -fx-background-size: 96px 96px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -149,7 +149,7 @@
 #profileAvatar {
 
     -fx-background-color: #33313b;
-    -fx-background-image: url("../userWhite.png");
+    -fx-background-image: url("../images/userWhite.png");
     -fx-background-size: 64px 64px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -158,7 +158,7 @@
 
 #profileAvatar:hover{
     -fx-background-color: #33313b;
-    -fx-background-image: url("../userOrang.png");
+    -fx-background-image: url("../images/userOrang.png");
     -fx-background-size: 72px 72px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -174,7 +174,7 @@
 
 #goBack{
     -fx-background-color: #33313b;
-    -fx-background-image: url("../GOBACK.png");
+    -fx-background-image: url("../images/GOBACK.png");
     -fx-background-size: 24px 24px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -182,7 +182,7 @@
 
 #goBack:hover{
     -fx-background-color: #33313b;
-    -fx-background-image: url("../GOBACKRED.png");
+    -fx-background-image: url("../images/GOBACKRED.png");
     -fx-background-size: 28px 28px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
