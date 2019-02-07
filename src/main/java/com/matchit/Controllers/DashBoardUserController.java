@@ -12,12 +12,15 @@ import javafx.scene.layout.Pane;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DashBoardUserController implements Initializable {
 
 
 
+    @FXML
+    private Label welcome;
     @FXML
     private Button securityButton;
 
@@ -54,6 +57,16 @@ public class DashBoardUserController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        try {
+            setWelcomUser(LogInController.getInctance().userName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void setWelcomUser( String user){
+         this.welcome.setText("Welcome," + " "+ user);
     }
 
 

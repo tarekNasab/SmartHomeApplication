@@ -100,4 +100,23 @@ public class User {
             System.out.println("User can not log in");
         }
     }
+
+    public String getUserNameByEmail(String userLogInEmail) throws SQLException {
+
+        String userName= "";
+        String bringUserName = "SELECT * FROM [user] WHERE email = ?";
+
+        PreparedStatement bringUserNameSt = ConnectionConfig.prepareStatement(bringUserName);
+        bringUserNameSt.setString(1, userLogInEmail );
+        ResultSet userNameResult = bringUserNameSt.executeQuery();
+        if (!userNameResult.isBeforeFirst()){
+            System.out.println("no user found");
+        }
+        while (userNameResult.next()){
+            userName = userNameResult.getString("name");
+        }
+
+        System.out.println(userName);
+        return userName;
+    }
 }
