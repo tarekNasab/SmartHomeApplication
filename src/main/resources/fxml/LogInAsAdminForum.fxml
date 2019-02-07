@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="320.0" style="-fx-background-color: #33313B;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="86.0" layoutY="268.0" promptText="Your email here" />
+      <PasswordField layoutX="85.0" layoutY="329.0" promptText="Your password here" />
+      <Button layoutX="116.0" layoutY="400.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #FFFF;" text="Log In">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="30.0" layoutY="506.0" prefHeight="31.0" prefWidth="48.0" text="Back " textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="22.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="22.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../password.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="106.0" fitWidth="92.0" layoutX="122.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../admin-with-cogwheels.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
