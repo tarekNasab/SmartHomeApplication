@@ -1,5 +1,6 @@
 package com.matchit.Controllers;
 
+import com.matchit.Position.Position;
 import com.matchit.User.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class AdminBoardController implements Initializable {
     Admin admin =new Admin();  //  Instance of Admin
+    Position position=new Position();
 
 
 
@@ -52,6 +54,10 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     private Button addButton;
+    @FXML
+    private Button addNewPositionB;
+    @FXML
+    private TextField newPositionName;
 
 
     @Override
@@ -68,25 +74,32 @@ public class AdminBoardController implements Initializable {
     @FXML
     public void setUpHomeAction(ActionEvent setupAction){
 
+        rightPaneAddUser.setVisible(false);
+        rightPaneAddPosition.setVisible(false);
         rightPaneSetupHome.setVisible(true);
     }
 
     @FXML
     public void addUserAction(ActionEvent addUserAction){
+        rightPaneAddPosition.setVisible(false);
+        rightPaneSetupHome.setVisible(false);
         rightPaneAddUser.setVisible(true);
     }
 
     @FXML
     public void addPositionVeiw(ActionEvent addPositionAction){
+        rightPaneSetupHome.setVisible(false);
+        rightPaneAddUser.setVisible(false);
         rightPaneAddPosition.setVisible(true);
     }
 
-    @FXML
-    public void addPositionAction(ActionEvent addPositionAction){
 
+    @FXML
+    public void addPositionAction(ActionEvent addPositionEvent){
+        String positionName = newPositionName.getText();
+        position.addPosition(positionName);
     }
 
-//
 //    @FXML
 //    public void addUserAction(ActionEvent newUser) {
 //

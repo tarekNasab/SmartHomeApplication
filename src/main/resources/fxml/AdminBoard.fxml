@@ -26,8 +26,8 @@
       <Pane fx:id="rightPaneAddPosition" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css">
          <children>
             <Label fx:id="positionNameLabel" layoutX="121.0" layoutY="142.0" prefHeight="25.0" prefWidth="88.0" stylesheets="@../styles/AdminDashboardStyle.css" text="Position name:" />
-            <TextField layoutX="227.0" layoutY="143.0" promptText="position name here" />
-            <Button layoutX="280.0" layoutY="190.0" mnemonicParsing="false" text="Add" />
+            <TextField fx:id="newPositionName" layoutX="227.0" layoutY="143.0" promptText="position name here" />
+            <Button layoutX="280.0" layoutY="190.0" mnemonicParsing="false" onAction="#addPositionAction" text="Add" />
          </children></Pane>
 
 
