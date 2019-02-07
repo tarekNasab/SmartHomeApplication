@@ -1,11 +1,11 @@
 package com.matchit.Controllers;
 
-import com.matchit.Position.Position;
 import com.matchit.User.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -18,47 +18,38 @@ import java.util.ResourceBundle;
 
 public class AdminBoardController implements Initializable {
     Admin admin =new Admin();  //  Instance of Admin
-    Position position=new Position();
-
 
 
     @FXML
-    private Pane rightPaneAddPosition;
-
+    public Pane rootPanAdmin;
     @FXML
-    private ImageView adminLogo;
-
+    public VBox leftPane;
     @FXML
-    private VBox leftPane;
-
+    public Button addUserButton;
     @FXML
-    private Pane rootPanAdmin;
-
+    public Button homePlanButton;
     @FXML
-    private Button addUserButton;
-
+    public Button addPositionButton;
     @FXML
-    private Button homePlanButton;
-
+    public ImageView adminLogo;
     @FXML
-    private Button addPositionButton;
-
+    public Pane seperator;
     @FXML
-    private Pane rightPaneSetupHome;
-
+    public Pane rightPaneSetupHome;
     @FXML
-    private Pane seperator;
-
+    public Pane rightPaneAddPosition;
     @FXML
-    private Pane rightPaneAddUser;
-
+    public Label positionNameLabel;
     @FXML
-    private Button addButton;
+    public Pane rightPaneAddUser;
     @FXML
-    private Button addNewPositionB;
+    public TextField newUserNameAdmin;
     @FXML
-    private TextField newPositionName;
-
+    public TextField newUserEmailadmin;
+    @FXML
+    public PasswordField newUserPassAdmin;
+    @FXML
+    public Button addNewUserAdminB;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -74,32 +65,25 @@ public class AdminBoardController implements Initializable {
     @FXML
     public void setUpHomeAction(ActionEvent setupAction){
 
-        rightPaneAddUser.setVisible(false);
-        rightPaneAddPosition.setVisible(false);
         rightPaneSetupHome.setVisible(true);
     }
 
     @FXML
     public void addUserAction(ActionEvent addUserAction){
-        rightPaneAddPosition.setVisible(false);
-        rightPaneSetupHome.setVisible(false);
         rightPaneAddUser.setVisible(true);
     }
 
     @FXML
     public void addPositionVeiw(ActionEvent addPositionAction){
-        rightPaneSetupHome.setVisible(false);
-        rightPaneAddUser.setVisible(false);
         rightPaneAddPosition.setVisible(true);
     }
 
-
     @FXML
-    public void addPositionAction(ActionEvent addPositionEvent){
-        String positionName = newPositionName.getText();
-        position.addPosition(positionName);
+    public void addPositionAction(ActionEvent addPositionAction){
+
     }
 
+//
 //    @FXML
 //    public void addUserAction(ActionEvent newUser) {
 //
