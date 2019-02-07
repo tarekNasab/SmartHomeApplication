@@ -33,20 +33,10 @@ public class SignUpController implements Initializable {
 
 
 
-    public void SignUpButton() {
 
 
-        signUpB.setOnAction(event -> {
-            String name, email, password;
-
-            name = nameSignUp.getText().toString();
-            email=emailSignUp.getText().toString();
-            password=passSignUp.getText().toString();
-            System.out.println(name+email+password);
-        });
 
 
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

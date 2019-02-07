@@ -42,11 +42,10 @@ public class Position {
     //Action Methods
 
     //     Add new Position to THe HOME
-    public static void AddtPosition(String positionName) {
+    public void addPosition(String positionName) {
         try {
-            String sql = "insert into [position] (positionName) ";
-            sql += " values (?)";
-            PreparedStatement ps = ConnectionConfig.prepareStatement(sql);
+            String addPositionQuery = "INSERT INTO [position] VALUES (?)";
+            PreparedStatement ps = ConnectionConfig.prepareStatement(addPositionQuery);
 
 
             // 3. Set the parameters

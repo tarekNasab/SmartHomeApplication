@@ -24,14 +24,18 @@
 }
 
 
-#planHomeB {
+
+#addPositionButton {
 -fx-background-color: #4a494f;
 -fx-background-image: url("../plans.png");
--fx-background-size: 96px 96px;
+-fx-background-size: 18px 18px;
 -fx-background-repeat: no-repeat;
 -fx-background-position: center;
 }
 
+#positionNameLabel{
+    -fx-text-fill: white;
+}
 #planHomeB:hover {
 -fx-background-color: #939199;
 -fx-background-image: url("../plansOrang.png");
@@ -40,6 +44,15 @@
 -fx-background-position: center;
 }
 
+#homePlanButton{
+    -fx-background-image: url("../metering.png");
+    -fx-background-size: 18px 18px;
+}
+
+#addUserButton{
+    -fx-background-image: url("../add-contactWhite.png");
+    -fx-background-size: 22px 22px;
+}
 
 
 /*#rightPan {*/
