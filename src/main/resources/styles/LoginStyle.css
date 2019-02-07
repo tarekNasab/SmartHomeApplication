@@ -35,6 +35,23 @@
     -fx-alignment: center;
 }
 
+
+#goBackButton{
+
+    -fx-text-fill: #ffff;
+    -fx-background-image: url("../GOBACK.png");
+    -fx-background-color: #33313b ;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#goBackButton:hover {
+
+    -fx-text-fill: #33313b;
+    -fx-background-color: white;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
 #liginAdmin:hover{
     -fx-font-size: 13px;
     -fx-text-fill: white;
