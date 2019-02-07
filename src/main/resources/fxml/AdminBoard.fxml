@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="rootPanAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/AdminDashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.AdminBoardController">
    <children>
@@ -40,6 +41,16 @@
             <Button fx:id="addNewUserAdminB" layoutX="268.0" layoutY="258.0" mnemonicParsing="false" onAction="#addUserAction" text="Add user" />
          </children>
       </Pane>
+      <Label layoutX="4.0" layoutY="196.0" prefHeight="47.0" prefWidth="232.0" text="Welcom , " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="goBack" layoutX="14.0" layoutY="17.0" onMouseClicked="#GoBackLabelAction" prefHeight="25.0" prefWidth="63.0" text="Go back" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+      </Label>
 
 
 

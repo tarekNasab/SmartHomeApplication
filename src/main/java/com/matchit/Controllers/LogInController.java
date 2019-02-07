@@ -84,7 +84,7 @@ public class LogInController implements Initializable {
 
     @FXML
     public void logInAdminAction(MouseEvent adminEvent) throws IOException {
-        Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/AdminBoard.fxml"));
+        Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/LogInAsAdminForum.fxml"));
         Scene homePageScene = new Scene(homePage);
         Stage appStage = (Stage) ((Node) adminEvent.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);

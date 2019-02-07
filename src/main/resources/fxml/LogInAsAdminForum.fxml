@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="320.0" style="-fx-background-color: #33313B;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="320.0" style="-fx-background-color: #33313B;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.LogInAsAdminController">
    <children>
       <TextField fx:id="adminUserName" layoutX="99.0" layoutY="267.0" promptText="Your email here" />
       <PasswordField fx:id="adminPassword" layoutX="99.0" layoutY="315.0" promptText="Your password here" />
-      <Button fx:id="logInAdminButton" layoutX="113.0" layoutY="389.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #FFFF;" text="Log In">
+      <Button fx:id="logInAdminButton" layoutX="113.0" layoutY="389.0" mnemonicParsing="false" onAction="#logInAdmainAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #FFFF;" text="Log In">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

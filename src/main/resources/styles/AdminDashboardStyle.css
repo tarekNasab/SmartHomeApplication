@@ -23,6 +23,10 @@
     -fx-background-position: center;
 }
 
+#goBack:hover{
+    -fx-text-fill: #bababa;
+    -fx-text-size: 16px;
+}
 
 #lightsButtonAdmin{
     -fx-text-fill: #ffff;

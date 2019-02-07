@@ -9,7 +9,31 @@ import java.sql.SQLException;
 
 public class Admin {
 
-    String userName, password;
+    String email, password;
+
+    public Admin() {
+    }
+
+    public Admin(String email) {
+        this.email = email;
+        this.password= password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     //
 
@@ -56,15 +80,18 @@ public class Admin {
 
 
         if (admainInfoSet.next()){
-            System.out.println("admain can log in");
+            System.out.println("user can log in");
+
         }
 
         else if (!admainInfoSet.isBeforeFirst()){
             System.out.println("admain can not log in");
         }
-    }
 
     }
+
+
+}
 
 
 
