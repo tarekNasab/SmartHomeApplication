@@ -13,8 +13,8 @@
    <children>
       <VBox fx:id="leftPane" layoutX="4.0" layoutY="281.0" prefHeight="230.0" prefWidth="232.0" stylesheets="@../styles/AdminDashboardStyle.css">
          <children>
-            <Button fx:id="addUserButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#addUserAction" prefHeight="54.0" prefWidth="232.0" text="Add new user" />
-            <Button fx:id="homePlanButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#setUpHomeAction" prefHeight="54.0" prefWidth="232.0" text="Home plan" />
+            <Button fx:id="addUserButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#addUserActionVeiw" prefHeight="54.0" prefWidth="232.0" text="Add new user" />
+            <Button fx:id="homePlanButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#setUpHomeActionView" prefHeight="54.0" prefWidth="232.0" text="Home plan" />
             <Button fx:id="addPositionButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#addPositionVeiw" prefHeight="54.0" prefWidth="232.0" stylesheets="@../styles/AdminDashboardStyle.css" text="Add position" />
          </children></VBox>
       <ImageView fx:id="adminLogo" fitHeight="139.0" fitWidth="132.0" layoutX="54.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
@@ -34,7 +34,7 @@
             <TextField fx:id="newUserNameAdmin" layoutX="226.0" layoutY="142.0" promptText="User name here" />
             <TextField fx:id="newUserEmailadmin" layoutX="226.0" layoutY="175.0" promptText="User email here" />
             <PasswordField fx:id="newUserPassAdmin" layoutX="226.0" layoutY="208.0" promptText="User password here" />
-            <Button fx:id="addNewUserAdminB" layoutX="268.0" layoutY="258.0" mnemonicParsing="false" text="Add user" />
+            <Button fx:id="addNewUserAdminB" layoutX="268.0" layoutY="258.0" mnemonicParsing="false" onAction="#addUserAction" text="Add user" />
          </children>
       </Pane>
 

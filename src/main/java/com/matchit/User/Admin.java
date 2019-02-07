@@ -18,7 +18,7 @@ public class Admin {
         try {
 
 
-            String addUserQuery = "INSERT INTO [user](Name, email, password) VALUES( ? , ?, ?)";
+            String addUserQuery = "INSERT INTO [user](name, email, password) VALUES( ? , ?, ?)";
 
             PreparedStatement ps = ConnectionConfig.prepareStatement(addUserQuery);
 

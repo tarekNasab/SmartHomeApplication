@@ -63,18 +63,23 @@ public class AdminBoardController implements Initializable {
 
 
     @FXML
-    public void setUpHomeAction(ActionEvent setupAction){
-
+    public void setUpHomeActionView(ActionEvent setupAction){
+        rightPaneAddUser.setVisible(false);
+        rightPaneAddPosition.setVisible(false);
         rightPaneSetupHome.setVisible(true);
+
     }
 
     @FXML
-    public void addUserAction(ActionEvent addUserAction){
-        rightPaneAddUser.setVisible(true);
-    }
+    public void addUserActionVeiw(ActionEvent addUserAction){
+        rightPaneAddPosition.setVisible(false);
+        rightPaneSetupHome.setVisible(false);
+        rightPaneAddUser.setVisible(true);    }
 
     @FXML
     public void addPositionVeiw(ActionEvent addPositionAction){
+        rightPaneSetupHome.setVisible(false);
+        rightPaneAddUser.setVisible(false);
         rightPaneAddPosition.setVisible(true);
     }
 
@@ -83,26 +88,26 @@ public class AdminBoardController implements Initializable {
 
     }
 
-//
-//    @FXML
-//    public void addUserAction(ActionEvent newUser) {
-//
-//            String name, email, password;
-//
-//            name = userFnameEdit.getText().toString();
-//            email = userEmailEdit.getText().toString();
-//            password = userPassEdit.getText().toString();
-//
-//
-//            if (!name.equalsIgnoreCase("") & !email.equalsIgnoreCase("") & !password.equalsIgnoreCase("")){
-//                admin.addNewUser(name,email,password);
-//            }
-//
-//            else if (email.equalsIgnoreCase("") || password.equalsIgnoreCase("") || email.equalsIgnoreCase("")){
-//
-//                System.out.println("Incomplete info!");
-//            }
-//    }
+
+    @FXML
+    public void addUserAction(ActionEvent newUser) {
+
+            String name, email, password;
+
+            name = newUserNameAdmin.getText();
+            email = newUserEmailadmin.getText();
+            password = newUserPassAdmin.getText();
+
+
+            if (!name.equalsIgnoreCase("") & !email.equalsIgnoreCase("") & !password.equalsIgnoreCase("")){
+                admin.addNewUser(name,email,password);
+            }
+
+            else if (email.equalsIgnoreCase("") || password.equalsIgnoreCase("") || name.equalsIgnoreCase("")){
+
+                System.out.println("Incomplete info!");   //Todo Set a label next to the text field with incomplete info red msg on v2
+            }
+    }
 
     }
 
