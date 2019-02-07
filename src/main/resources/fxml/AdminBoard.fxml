@@ -23,7 +23,7 @@
          </image></ImageView>
       <Pane fx:id="seperator" layoutX="241.0" layoutY="25.0" prefHeight="480.0" prefWidth="2.0" stylesheets="@../styles/AdminDashboardStyle.css" />
       <Pane fx:id="rightPaneSetupHome" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" />
-      <Pane fx:id="rightPaneAddPosition" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
+      <Pane fx:id="rightPaneAddPosition" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css">
          <children>
             <Label fx:id="positionNameLabel" layoutX="121.0" layoutY="142.0" prefHeight="25.0" prefWidth="88.0" stylesheets="@../styles/AdminDashboardStyle.css" text="Position name:" />
             <TextField fx:id="newPositionName" layoutX="227.0" layoutY="143.0" promptText="position name here" />

@@ -25,13 +25,17 @@
 
 
 
-#addPositionButton {
--fx-background-color: #4a494f;
--fx-background-image: url("../plans.png");
--fx-background-size: 18px 18px;
--fx-background-repeat: no-repeat;
--fx-background-position: center;
-}
+/*!*#addPositionButton {*!*/
+/*!*-fx-background-color: #4a494f;*!*/
+/*!*-fx-background-image: url("../plans.png");*!*/
+/*!*-fx-background-size: 18px 18px;*!*/
+/*!*-fx-background-repeat: no-repeat;*!*/
+/*!*-fx-background-position: center;*!*/
+/*!*}*!*/
+
+/*#addPositionButton:hover{*/
+
+/*}*/
 
 #positionNameLabel{
     -fx-text-fill: white;
