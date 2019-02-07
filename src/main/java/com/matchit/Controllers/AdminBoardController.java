@@ -113,7 +113,9 @@ public class AdminBoardController implements Initializable {
         Scene homePageScene = new Scene(homePage);
         Stage appStage = (Stage) ((Node) adminEvent.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
+        
         appStage.show();
+
 
     }
 
