@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -19,40 +20,36 @@ public class AdminBoardController implements Initializable {
     Admin admin =new Admin();  //  Instance of Admin
 
 
-
     @FXML
-    private Pane rightPaneAddPosition;
-
+    public Pane rootPanAdmin;
     @FXML
-    private ImageView adminLogo;
-
+    public VBox leftPane;
     @FXML
-    private VBox leftPane;
-
+    public Button addUserButton;
     @FXML
-    private Pane rootPanAdmin;
-
+    public Button homePlanButton;
     @FXML
-    private Button addUserButton;
-
+    public Button addPositionButton;
     @FXML
-    private Button homePlanButton;
-
+    public ImageView adminLogo;
     @FXML
-    private Button addPositionButton;
-
+    public Pane seperator;
     @FXML
-    private Pane rightPaneSetupHome;
-
+    public Pane rightPaneSetupHome;
     @FXML
-    private Pane seperator;
-
+    public Pane rightPaneAddPosition;
     @FXML
-    private Pane rightPaneAddUser;
-
+    public Label positionNameLabel;
     @FXML
-    private Button addButton;
-
+    public Pane rightPaneAddUser;
+    @FXML
+    public TextField newUserNameAdmin;
+    @FXML
+    public TextField newUserEmailadmin;
+    @FXML
+    public PasswordField newUserPassAdmin;
+    @FXML
+    public Button addNewUserAdminB;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
