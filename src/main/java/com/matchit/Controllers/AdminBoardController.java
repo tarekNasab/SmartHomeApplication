@@ -1,5 +1,6 @@
 package com.matchit.Controllers;
 
+import com.matchit.Position.Position;
 import com.matchit.User.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class AdminBoardController implements Initializable {
     Admin admin =new Admin();  //  Instance of Admin
+    Position position=new Position();
 
 
     @FXML
@@ -50,6 +52,8 @@ public class AdminBoardController implements Initializable {
     public PasswordField newUserPassAdmin;
     @FXML
     public Button addNewUserAdminB;
+    @FXML
+    public TextField newPositionName;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -85,6 +89,13 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     public void addPositionAction(ActionEvent addPositionAction){
+
+        String positionName;
+        positionName=newPositionName.getText().toString();
+        position.addPosition(positionName);
+
+
+
 
     }
 
