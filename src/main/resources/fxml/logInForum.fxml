@@ -39,7 +39,7 @@
                   <Image url="@../images/password.png" />
                </image>
             </ImageView>
-            <Label fx:id="liginAdmin" layoutX="14.0" layoutY="562.0" onMouseClicked="#logInAdminAction" text="Log in as an Admin" textFill="#b1b0b5" />
+            <Label fx:id="loginAdmin" layoutX="14.0" layoutY="562.0" onMouseClicked="#logInAdminAction" text="Log in as an Admin" textFill="#b1b0b5" />
          </children>
       </AnchorPane>
    </children>

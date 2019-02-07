@@ -32,12 +32,9 @@ public class LogInController implements Initializable {
         inctance = this;
     }
 
-    public static LogInController getInctance(){
+    public static LogInController getInctance() {
         return inctance;
     }
-
-
-
 
 
     @FXML
@@ -51,7 +48,7 @@ public class LogInController implements Initializable {
 
 
     @FXML
-    private Label liginAdmin;
+    private Label loginAdmin;
 
     @FXML
     private Button loginB;
@@ -71,14 +68,20 @@ public class LogInController implements Initializable {
         String email = emailEdit.getText();
         String password = passwordEdit.getText();
 
-        user.logInUser(email, password);
+        boolean loggedIn = user.logInUser(email, password);
 
 
-        Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/DashboardUser.fxml"));
-        Scene homePageScene = new Scene(homePage);
-        Stage appStage = (Stage) ((Node) logInEvent.getSource()).getScene().getWindow();
-        appStage.setScene(homePageScene);
-        appStage.show();
+        if (loggedIn) {
+
+            Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/DashboardUser.fxml"));
+            Scene homePageScene = new Scene(homePage);
+            Stage appStage = (Stage) ((Node) logInEvent.getSource()).getScene().getWindow();
+            appStage.setScene(homePageScene);
+            appStage.show();
+        } else if (!loggedIn) {
+            System.out.println("user can not log in");
+
+        }
     }
 
 
@@ -98,9 +101,8 @@ public class LogInController implements Initializable {
     }
 
 
-
-    public  String userName() throws SQLException {
+    public String userName() throws SQLException {
         String userName = user.getUserNameByEmail(emailEdit.getText());
-        return userName ;
+        return userName;
     }
 }

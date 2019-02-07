@@ -1,8 +1,6 @@
-package com.matchit;
+package com.matchit.EntryPoint;
 
-import com.sun.xml.internal.ws.dump.LoggingDumpTube;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,6 +9,8 @@ import javafx.stage.Stage;
 
 
 public class MainApp extends Application {
+
+
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -33,6 +33,11 @@ public class MainApp extends Application {
      * @param args the command line arguments
      *
      */
+
+
+
+    //The Entry point
+
     public static void main(String[] args) {
 
         launch(args);

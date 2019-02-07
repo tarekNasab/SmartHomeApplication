@@ -79,7 +79,7 @@ public class User {
 
     //Action methods
 
-    public void logInUser(String enteredEmail , String eneteredPass) throws SQLException {
+    public boolean logInUser(String enteredEmail , String eneteredPass) throws SQLException {
 
         String logInQuery = "SELECT * FROM [user] WHERE email = ? AND password = ?" ;
         PreparedStatement logInStatement = ConnectionConfig.prepareStatement(logInQuery);
@@ -93,12 +93,14 @@ public class User {
 
 
         if (userInfoSet.next()){
-            System.out.println("user can log in");
+            return true;
         }
 
         else if (!userInfoSet.isBeforeFirst()){
             System.out.println("User can not log in");
+            return false;
         }
+        return false;
     }
 
     public String getUserNameByEmail(String userLogInEmail) throws SQLException {

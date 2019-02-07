@@ -42,27 +42,54 @@ public class LogInAsAdminController implements Initializable {
     @FXML
     public Label goBackLabel;
 
+    @FXML
+    private Label notVaildInfo;
+    @FXML
+    private Label notVaildInfo2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        notVaildInfo.setVisible(false);
+        notVaildInfo2.setVisible(false);
 
     }
 
 
     @FXML
+    public void goBackToLogin(MouseEvent goBackEvent) throws IOException {
+        Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/logInForum.fxml"));
+        Scene homePageScene = new Scene(homePage);
+        Stage appStage = (Stage) ((Node) goBackEvent.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
+
+    }
+
+    @FXML
     public void logInAdmainAction(ActionEvent logInEvent) throws SQLException, IOException {
-        String email=adminUserName.getText().toString();
-        String password=adminPassword.getText().toString();
-
-            admin.logInAdmain(email, password);
+        String email=adminUserName.getText();
+        String password=adminPassword.getText();
 
 
+        boolean loggedIn = admin.logInAdmain(email, password);
 
+
+
+        if (loggedIn){
               Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/AdminBoard.fxml"));
               Scene homePageScene = new Scene(homePage);
               Stage appStage = (Stage) ((Node) logInEvent.getSource()).getScene().getWindow();
               appStage.setScene(homePageScene);
-              appStage.show();
+              appStage.show();}
+        else if (!loggedIn){
+
+            notVaildInfo.setVisible(true);
+            notVaildInfo2.setVisible(true);
+
+
+
+        }
 
 
           }

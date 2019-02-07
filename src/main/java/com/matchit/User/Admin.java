@@ -66,9 +66,9 @@ public class Admin {
 
 
 
-    public void logInAdmain(String enteredEmail , String eneteredPass) throws SQLException {
+    public boolean logInAdmain(String enteredEmail , String eneteredPass) throws SQLException {
 
-        String logInQueryAd = "SELECT * FROM [admain] WHERE email = ? AND password = ?" ;
+        String logInQueryAd = "SELECT * FROM [admin] WHERE email = ? AND password = ?" ;
         PreparedStatement logInStatement = ConnectionConfig.prepareStatement(logInQueryAd);
 
         logInStatement.setString(1 , enteredEmail);
@@ -82,12 +82,15 @@ public class Admin {
         if (admainInfoSet.next()){
             System.out.println("user can log in");
 
+            return true;
         }
 
         else if (!admainInfoSet.isBeforeFirst()){
             System.out.println("admain can not log in");
+            return false;
         }
 
+        return false;
     }
 
 
