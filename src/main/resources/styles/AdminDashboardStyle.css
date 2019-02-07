@@ -31,7 +31,7 @@
 #lightsButtonAdmin{
     -fx-text-fill: #ffff;
     -fx-background-color: #4a494f;
-    -fx-background-image: url("../light-bulbWhite.png");
+    -fx-background-image: url("../images/light-bulbWhite.png");
     -fx-background-size: 54px 54px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -42,7 +42,7 @@
 #lightsButtonAdmin:hover{
     -fx-text-fill: #ffff;
     -fx-background-color: #91ab46;
-    -fx-background-image: url("../light-bulb.png");
+    -fx-background-image: url("../images/light-bulb.png");
     -fx-background-size: 62px 62px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -67,19 +67,19 @@
 }
 #planHomeB:hover {
 -fx-background-color: #939199;
--fx-background-image: url("../plansOrang.png");
+-fx-background-image: url("../images/plansOrang.png");
 -fx-background-size: 96px 96px;
 -fx-background-repeat: no-repeat;
 -fx-background-position: center;
 }
 
 #homePlanButton{
-    -fx-background-image: url("../metering.png");
+    -fx-background-image: url("../images/metering.png");
     -fx-background-size: 18px 18px;
 }
 
 #addUserButton{
-    -fx-background-image: url("../add-contactWhite.png");
+    -fx-background-image: url("../images/add-contactWhite.png");
     -fx-background-size: 22px 22px;
 }
 

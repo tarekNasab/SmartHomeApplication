@@ -20,7 +20,7 @@
          </children></VBox>
       <ImageView fx:id="adminLogo" fitHeight="139.0" fitWidth="132.0" layoutX="54.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../admin.png" />
+            <Image url="@../images/admin.png" />
          </image></ImageView>
       <Pane fx:id="seperator" layoutX="241.0" layoutY="25.0" prefHeight="480.0" prefWidth="2.0" stylesheets="@../styles/AdminDashboardStyle.css" />
       <Pane fx:id="rightPaneSetupHome" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css">

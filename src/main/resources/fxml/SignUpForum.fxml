@@ -16,7 +16,7 @@
             <TextField layoutX="79.0" layoutY="313.0" promptText="Your password" />
             <ImageView fitHeight="89.0" fitWidth="85.0" layoutX="111.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: colorAdjust;">
                <image>
-                  <Image url="@../users.png" />
+                  <Image url="@../images/users.png" />
                </image>
             </ImageView>
             <Button fx:id="signUpB" layoutX="90.0" layoutY="388.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" stylesheets="@../styles/SignUpStyle.css" text="SignUp" textFill="#33313b">
@@ -26,17 +26,17 @@
             </Button>
             <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="45.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../user.png" />
+                  <Image url="@../images/user.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="45.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../at.png" />
+                  <Image url="@../images/at.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="45.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../password.png" />
+                  <Image url="@../images/password.png" />
                </image>
             </ImageView>
          </children>
