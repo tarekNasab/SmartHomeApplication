@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,11 +19,14 @@
    <children>
       <Label fx:id="cosumizeLabel" layoutX="52.0" layoutY="464.0" text="Costumize" textFill="#c9c3c3" underline="true" />
       <ToggleButton fx:id="autoModeOn" layoutX="52.0" layoutY="427.0" mnemonicParsing="false" text="Auto mode On" />
-      <ImageView fx:id="dashboardLogo" fitHeight="61.0" fitWidth="56.0" layoutX="72.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dashboardLogo" fitHeight="61.0" fitWidth="56.0" layoutX="72.0" layoutY="82.0" onMouseClicked="#onDashBoardShowRightPane" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dashboard.png" />
-         </image></ImageView>
-      <Pane fx:id="rightSidePan" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <Pane fx:id="rightSidePanBoard" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
          <children>
             <GridPane fx:id="imageGridView" prefHeight="520.0" prefWidth="600.0">
               <columnConstraints>
@@ -41,20 +47,44 @@
                </children>
             </GridPane>
          </children></Pane>
-      <Label fx:id="dashboard" layoutX="56.0" layoutY="138.0" text="DASHBOARD" textFill="WHITE">
+      <Label fx:id="dashboard" layoutX="56.0" layoutY="138.0" onMouseClicked="#onDashBoardShowRightPane" stylesheets="@../styles/DashboardStyle.css" text="DASHBOARD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Button fx:id="profileAvatar" layoutY="273.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="199.0" />
-      <Label fx:id="welcome" layoutX="16.0" layoutY="224.0" prefHeight="56.0" prefWidth="170.0" text="Welcome, " textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
          </font>
-      </Label>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+      <Button fx:id="profileAvatar" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#showProfilePane" prefHeight="150.0" prefWidth="199.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label fx:id="goBackLabel" layoutX="16.0" layoutY="14.0" onMouseClicked="#goBackToLogIn" prefHeight="38.0" prefWidth="73.0" text="Go back" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
+      <Pane fx:id="rightSidePanProfile" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
+         <children>
+            <Pane fx:id="profileBodyPane" layoutY="145.0" prefHeight="359.0" prefWidth="600.0" />
+            <Pane fx:id="topBanner" prefHeight="136.0" prefWidth="600.0">
+               <children>
+                  <MenuButton fx:id="profileMenuB" alignment="BOTTOM_CENTER" layoutX="546.0" layoutY="9.0" mnemonicParsing="false" popupSide="LEFT" prefHeight="38.0" prefWidth="40.0" stylesheets="@../styles/DashboardStyle.css">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </MenuButton>
+                  <Label fx:id="welcome" layoutX="13.0" layoutY="2.0" prefHeight="38.0" prefWidth="232.0" text="Hi, " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
