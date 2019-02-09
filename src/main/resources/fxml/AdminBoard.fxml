@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -23,9 +24,9 @@
             <Image url="@../images/admin.png" />
          </image></ImageView>
       <Pane fx:id="seperator" layoutX="241.0" layoutY="25.0" prefHeight="480.0" prefWidth="2.0" stylesheets="@../styles/AdminDashboardStyle.css" />
-      <Pane fx:id="rightPaneSetupHome" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css">
+      <Pane fx:id="rightPaneSetupHome" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
          <children>
-            <Button fx:id="lightsButtonAdmin" alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" prefHeight="154.0" prefWidth="182.0" text="Lights" />
+            <Button fx:id="lightsButtonAdmin" alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#onLightsAction" prefHeight="154.0" prefWidth="182.0" text="Lights" />
          </children></Pane>
       <Pane fx:id="rightPaneAddPosition" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
          <children>
@@ -41,16 +42,42 @@
             <Button fx:id="addNewUserAdminB" layoutX="268.0" layoutY="258.0" mnemonicParsing="false" onAction="#addUserAction" text="Add user" />
          </children>
       </Pane>
-      <Label layoutX="4.0" layoutY="196.0" prefHeight="47.0" prefWidth="232.0" text="Welcom , " textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
       <Label fx:id="goBack" layoutX="14.0" layoutY="17.0" onMouseClicked="#GoBackLabelAction" prefHeight="25.0" prefWidth="63.0" text="Go back" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="14.0" />
          </font>
       </Label>
+      <Pane fx:id="rightPaneAddLightPane" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css">
+         <children>
+            <Label fx:id="noPositionLabel" layoutX="169.0" layoutY="117.0" prefHeight="25.0" prefWidth="217.0" textAlignment="CENTER" textFill="#d31b1b">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choosePositionBox" layoutX="213.0" layoutY="92.0" prefWidth="150.0" stylesheets="@../styles/AdminDashboardStyle.css" />
+            <Button fx:id="addLightAfterChoose" layoutX="266.0" layoutY="163.0" mnemonicParsing="false" onAction="#addLightAfterChooseAction" text="Add">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Label fx:id="printSuccessMsg" layoutX="211.0" layoutY="203.0" prefHeight="37.0" prefWidth="331.0" textFill="#16ab34">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane fx:id="rightPanLightBoard" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
+         <children>
+            <VBox layoutX="96.0" layoutY="60.0" prefHeight="380.0" prefWidth="372.0">
+               <children>
+                  <Button fx:id="addLightB" mnemonicParsing="false" onAction="#addLightAction" prefHeight="75.0" prefWidth="372.0" text="Add light" />
+                  <Button fx:id="removeLightB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="372.0" text="Remove light" />
+                  <Button fx:id="customizeLightByPositionB" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="372.0" text="Customize light by position" />
+                  <Button fx:id="customizeLightByIdB" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="372.0" text="Customize light by light id" />
+                  <Button fx:id="viewAllLightsB" layoutX="10.0" layoutY="235.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="372.0" text="View all lights" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
 
 
 

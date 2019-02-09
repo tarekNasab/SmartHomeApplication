@@ -3,10 +3,13 @@ package com.matchit.Position;
 import com.matchit.DB_Connection.ConnectionConfig;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class Position {
+    protected int positionID;
     protected String positionName;
 
 
@@ -15,8 +18,9 @@ public class Position {
     }
 
 
-    public Position(String positionName) {
+    public Position(String positionName , int positionID) {
         super();
+        this.positionID = positionID;
         this.positionName = positionName;
     }
 
@@ -99,9 +103,74 @@ public class Position {
         }
     }
 
-    public static void checkPosition() {
+    public void checkPosition() {
 
     }
+
+    public boolean checkIfIsNoPosition() throws SQLException {
+        String isNoPositionQuery = " SELECT * FROM [Position]";
+        PreparedStatement isNoPositionStatement = ConnectionConfig.prepareStatement(isNoPositionQuery);
+        ResultSet resultSetPosition = isNoPositionStatement.executeQuery();
+        while(resultSetPosition.next()){
+            return true;
+        }
+        if (!resultSetPosition.isBeforeFirst()){
+            return false;
+        }
+      return false;
+    }
+
+    public int getPositionIDByName(String pName) throws SQLException {
+        int positionId = 0 ;
+        String positionIdQuery = "SELECT * FROM [Position] WHERE positionName = ?";
+        PreparedStatement positionIdSt = ConnectionConfig.prepareStatement(positionIdQuery);
+        positionIdSt.setString(1,pName);
+        ResultSet posIdRs = positionIdSt.executeQuery();
+
+        if (!posIdRs.isBeforeFirst()){
+            System.out.println("Not able to find " + pName + "'s ID!");
+        }
+        while (posIdRs.next()){
+            positionId = posIdRs.getInt("positionID");
+            System.out.println(positionId);
+        }
+
+        return positionId;
+    }
+
+
+
+    public ArrayList<Position> bringPositionNames() throws SQLException {
+
+        ArrayList<Position> positions = new ArrayList<>();
+
+        String positionNamesQuery = "SELECT * FROM [Position]";
+        PreparedStatement positionNamesSt = ConnectionConfig.prepareStatement(positionNamesQuery);
+        ResultSet positionNameRs = positionNamesSt.executeQuery();
+
+
+        if (!positionNameRs.isBeforeFirst()){
+            System.out.println("No positions found! test");
+        }
+        while (positionNameRs.next()) {
+            String posName = positionNameRs.getString("positionName");
+            System.out.println(posName);
+            int posId = positionNameRs.getInt("positionID");
+            System.out.println(posId);
+            Position myPosition = new Position(posName, posId);
+            positions.add(myPosition);
+        }
+
+
+        return positions;
+
+
+    }
+
+
+
+
+
 
 }
 

@@ -100,9 +100,7 @@ public class User {
             System.out.println("User can not log in");
             return false;
         }
-        return false;
-    }
-
+        return false; }
     public String getUserNameByEmail(String userLogInEmail) throws SQLException {
 
         String userName= "";
