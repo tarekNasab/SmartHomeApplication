@@ -16,7 +16,7 @@ public class ConnectionConfig {
         try {
 
 
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=SmartHomeDB;user=sa;password=12345";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=SmartHomeDB;user=sa;password=massa1991";
 
 
             myConnection = DriverManager.getConnection(url);
