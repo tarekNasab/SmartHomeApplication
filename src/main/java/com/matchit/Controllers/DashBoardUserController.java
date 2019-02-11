@@ -113,8 +113,11 @@ public class DashBoardUserController implements Initializable {
         MenuItem showProfile = new MenuItem("My profile");
         MenuItem editName = new MenuItem("Change my name");
         MenuItem editEmail = new MenuItem("Change my email");
+        MenuItem editPass = new MenuItem("Change my password");
 
-        profileMenuItems.addAll(showProfile, editEmail, editName);
+
+
+        profileMenuItems.addAll(showProfile, editEmail, editName, editPass);
         menuButton.getItems().addAll(profileMenuItems);
     }
 }
