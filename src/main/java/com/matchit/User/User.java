@@ -119,4 +119,34 @@ public class User {
         System.out.println(userName);
         return userName;
     }
+
+
+
+    public void updateEmail(String newEmail , String oldEmail) throws SQLException {
+        String updateEmailQ = "UPDATE [user] SET email = ? WHERE email = ? ";
+        PreparedStatement updateEmailStatement = ConnectionConfig.prepareStatement(updateEmailQ);
+        updateEmailStatement.setString(1,newEmail);
+        updateEmailStatement.setString(2, oldEmail);
+        updateEmailStatement.executeUpdate();
+        System.out.println("Email Updated!");
+    }
+
+    public void updateName(String newName , String Email) throws SQLException {
+        String updateNameQ = "UPDATE [user] SET name = ? WHERE email = ? ";
+        PreparedStatement updateEmailStatement = ConnectionConfig.prepareStatement(updateNameQ);
+        updateEmailStatement.setString(1,newName);
+        updateEmailStatement.setString(2, Email);
+        updateEmailStatement.executeUpdate();
+        System.out.println("Name Updated!");
+    }
+
+
+    public void updatePass(String newPass , String Email) throws SQLException {
+        String updateEmailQ = "UPDATE [user] SET password = ? WHERE email = ? ";
+        PreparedStatement updateEmailStatement = ConnectionConfig.prepareStatement(updateEmailQ);
+        updateEmailStatement.setString(1,newPass);
+        updateEmailStatement.setString(2, Email);
+        updateEmailStatement.executeUpdate();
+        System.out.println("Password Updated!");
+    }
 }

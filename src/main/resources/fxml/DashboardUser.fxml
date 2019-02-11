@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
@@ -15,6 +16,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="dbBK" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../styles/DashboardStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matchit.Controllers.DashBoardUserController">
@@ -56,20 +58,33 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Label>
-      <Button fx:id="profileAvatar" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#showProfilePane" prefHeight="150.0" prefWidth="199.0">
+      <Button fx:id="profileAvatar" alignment="BOTTOM_CENTER" layoutX="3.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#showProfilePane" prefHeight="150.0" prefWidth="183.0" textAlignment="CENTER" textFill="#e8e3e3">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font name="SansSerif Bold" size="13.0" />
+         </font></Button>
       <Label fx:id="goBackLabel" layoutX="16.0" layoutY="14.0" onMouseClicked="#goBackToLogIn" prefHeight="38.0" prefWidth="73.0" text="Go back" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <Pane fx:id="rightSidePanProfile" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
+      <Pane fx:id="rightSidePanProfile" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css" visible="false">
          <children>
-            <Pane fx:id="profileBodyPane" layoutY="145.0" prefHeight="359.0" prefWidth="600.0">
+            <Pane fx:id="profileBodyPane" layoutY="145.0" prefHeight="359.0" prefWidth="600.0" visible="false">
                <children>
-                  <Separator layoutX="107.0" layoutY="10.0" prefHeight="6.0" prefWidth="384.0" />
+                  <Pane fx:id="infoBoxPane" layoutX="31.0" layoutY="66.0" prefHeight="253.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="profileNameInfoL" layoutX="22.0" layoutY="35.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE" />
+                        <Label fx:id="profileMailInfoL" layoutX="22.0" layoutY="63.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="yourIndformationLabel" layoutX="31.0" layoutY="32.0" text="Your info:" textFill="#d3cfcf">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children></Pane>
             <Pane fx:id="topBanner" prefHeight="136.0" prefWidth="600.0">
                <children>
@@ -87,23 +102,25 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <Separator layoutX="107.0" layoutY="119.0" prefHeight="6.0" prefWidth="384.0" />
                </children>
             </Pane>
             <Pane fx:id="changeEmailBodyPane" layoutY="145.0" prefHeight="359.0" prefWidth="600.0" visible="false">
                <children>
                   <TextField fx:id="newEmailText" layoutX="214.0" layoutY="97.0" prefHeight="25.0" prefWidth="170.0" promptText="Enter your new E-mail here.." stylesheets="@../styles/DashboardStyle.css" />
-                  <Button fx:id="saveEmailButton" layoutX="280.0" layoutY="167.0" mnemonicParsing="false" stylesheets="@../styles/DashboardStyle.css" text="Save" />
+                  <Button fx:id="saveEmailButton" layoutX="280.0" layoutY="167.0" mnemonicParsing="false" onAction="#updateUserEmailAction" stylesheets="@../styles/DashboardStyle.css" text="Save" />
                   <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="182.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/at.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="emailUpdatedLabel" layoutX="214.0" layoutY="230.0" prefHeight="17.0" prefWidth="183.0" textFill="#1abf2a" />
                </children>
             </Pane>
             <Pane fx:id="changeNameBodyPane" layoutY="145.0" prefHeight="359.0" prefWidth="600.0" visible="false">
                <children>
                   <TextField fx:id="newNameText" layoutX="214.0" layoutY="97.0" prefHeight="25.0" prefWidth="170.0" promptText="Enter your new name here.." stylesheets="@../styles/DashboardStyle.css" />
-                  <Button fx:id="saveNameButton" layoutX="280.0" layoutY="167.0" mnemonicParsing="false" stylesheets="@../styles/DashboardStyle.css" text="Save" />
+                  <Button fx:id="saveNameButton" layoutX="280.0" layoutY="167.0" mnemonicParsing="false" onAction="#updateUserNameAction" stylesheets="@../styles/DashboardStyle.css" text="Save" />
                   <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="182.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/userWhite.png" />
@@ -113,17 +130,61 @@
             </Pane>
             <Pane fx:id="changePassBodyPane" layoutY="145.0" prefHeight="359.0" prefWidth="600.0" visible="false">
                <children>
-                  <TextField fx:id="newPassText" layoutX="214.0" layoutY="97.0" prefHeight="25.0" prefWidth="170.0" promptText="Enter your new password.." stylesheets="@../styles/DashboardStyle.css" />
-                  <Button fx:id="savePassButton" layoutX="280.0" layoutY="167.0" mnemonicParsing="false" stylesheets="@../styles/DashboardStyle.css" text="Save" />
+                  <Button fx:id="savePassButton" layoutX="280.0" layoutY="167.0" mnemonicParsing="false" onAction="#updateUserPasswordAction" stylesheets="@../styles/DashboardStyle.css" text="Save" />
                   <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="182.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/password.png" />
                      </image>
                   </ImageView>
+                  <PasswordField fx:id="newPassText" layoutX="226.0" layoutY="97.0" promptText="Your new password here.." />
                </children>
             </Pane>
          </children>
       </Pane>
       <Separator layoutX="189.0" layoutY="102.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="0.0" />
+      <Pane fx:id="rightSideLightControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
+         <children>
+            <Pane fx:id="ChoosePositionPane" layoutX="9.0" layoutY="10.0" prefHeight="173.0" prefWidth="248.0" stylesheets="@../styles/DashboardStyle.css">
+               <children>
+                  <Separator layoutX="234.0" layoutY="19.0" orientation="VERTICAL" prefHeight="132.0" prefWidth="2.0" />
+                  <MenuButton fx:id="choosePositionMenu" layoutX="33.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" text="MenuButton">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </children></Pane>
+            <Pane fx:id="StatuesPane" layoutX="265.0" layoutY="10.0" prefHeight="173.0" prefWidth="326.0" stylesheets="@../styles/DashboardStyle.css">
+               <children>
+                  <Label fx:id="lightStatuesLabel" layoutX="8.0" layoutY="3.0" text="Light Statues:" textFill="WHITE" />
+                  <VBox layoutX="14.0" layoutY="20.0" prefHeight="142.0" prefWidth="299.0">
+                     <children>
+                        <Label fx:id="onOffStatue" layoutX="10.0" layoutY="27.0" prefHeight="47.0" prefWidth="304.0" />
+                        <Label fx:id="strengthStatue" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="304.0" />
+                        <Label fx:id="colorStatue" layoutX="10.0" layoutY="59.0" prefHeight="49.0" prefWidth="310.0" />
+                     </children>
+                  </VBox>
+               </children></Pane>
+            <Pane fx:id="ccommandPane" layoutX="9.0" layoutY="196.0" prefHeight="318.0" prefWidth="581.0" stylesheets="@../styles/DashboardStyle.css">
+               <children>
+                  <MenuButton fx:id="chooseCommandMenu" layoutX="14.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="474.0" text="MenuButton">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                     </items>
+                  </MenuButton>
+                  <Button fx:id="doCommandButton" layoutX="507.0" layoutY="271.0" mnemonicParsing="false" text="Button" />
+                  <Label fx:id="updatedStatueLabel" layoutX="14.0" layoutY="14.0" text="Updated Statue:" textFill="#fcf8f8" />
+                  <VBox layoutX="14.0" layoutY="46.0" prefHeight="166.0" prefWidth="545.0">
+                     <children>
+                        <Label fx:id="updatedStatueOnOff" prefHeight="54.0" prefWidth="545.0" textFill="#fcf8f8" />
+                        <Label fx:id="updatedStatueStrength" layoutX="10.0" layoutY="64.0" prefHeight="54.0" prefWidth="545.0" textFill="#fcf8f8" />
+                        <Label fx:id="updatedStatueColor" layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="545.0" textFill="#fcf8f8" />
+                     </children>
+                  </VBox>
+               </children></Pane>
+            <Separator layoutX="108.0" layoutY="189.0" prefWidth="400.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

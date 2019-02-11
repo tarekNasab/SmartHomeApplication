@@ -112,6 +112,7 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     public void setUpHomeActionView(ActionEvent setupAction) {
+        rightPaneAddLightPane.setVisible(false);
         rightPanLightBoard.setVisible(false);
         rightPaneAddUser.setVisible(false);
         rightPaneAddPosition.setVisible(false);
@@ -121,6 +122,7 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     public void addUserActionVeiw(ActionEvent addUserAction) {
+        rightPaneAddLightPane.setVisible(false);
         rightPanLightBoard.setVisible(false);
         rightPaneAddPosition.setVisible(false);
         rightPaneSetupHome.setVisible(false);
@@ -129,6 +131,7 @@ public class AdminBoardController implements Initializable {
 
     @FXML
     public void addPositionVeiw(ActionEvent addPositionAction) {
+        rightPaneAddLightPane.setVisible(false);
         rightPanLightBoard.setVisible(false);
         rightPaneSetupHome.setVisible(false);
         rightPaneAddUser.setVisible(false);
@@ -203,7 +206,7 @@ public class AdminBoardController implements Initializable {
     }
 
     public void addLightAfterChooseAction(ActionEvent addEvent) throws SQLException {
-        String positionNameToAddLight = getChoicOfPositions(choosePositionBox).toString();
+        String positionNameToAddLight = getChoicOfPositions(choosePositionBox);
 //        printSuccessMsg.setText(positionNameToAddLight);
             System.out.println(positionNameToAddLight);
             light.addLightToPosition(positionNameToAddLight);

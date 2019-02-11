@@ -105,4 +105,10 @@ public class LogInController implements Initializable {
         String userName = user.getUserNameByEmail(emailEdit.getText());
         return userName;
     }
+
+    public String email() throws SQLException{
+        String email = emailEdit.getText();
+        return email;
+    }
+
 }

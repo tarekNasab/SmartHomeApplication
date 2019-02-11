@@ -1,7 +1,9 @@
 package com.matchit.Controllers;
 
+import com.matchit.User.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,11 +21,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class DashBoardUserController implements Initializable {
 
     ObservableList<MenuItem> profileMenuItems = FXCollections.observableArrayList();
+    User user = new User();
 
     @FXML
     public AnchorPane dbBK;
@@ -56,12 +60,39 @@ public class DashBoardUserController implements Initializable {
     @FXML
     public Pane profileBodyPane;
     @FXML
+    public Pane infoBoxPane;
+    @FXML
+    public Label profileNameInfoL;
+    @FXML
+    public Label profileMailInfoL;
+    @FXML
+    public Label yourIndformationLabel;
+    @FXML
     public Pane topBanner;
     @FXML
     public MenuButton profileMenuB;
     @FXML
     public Label welcome;
-
+    @FXML
+    public Pane changeEmailBodyPane;
+    @FXML
+    public TextField newEmailText;
+    @FXML
+    public Button saveEmailButton;
+    @FXML
+    public Pane changeNameBodyPane;
+    @FXML
+    public TextField newNameText;
+    @FXML
+    public Button saveNameButton;
+    @FXML
+    public Pane changePassBodyPane;
+    @FXML
+    public TextField newPassText;
+    @FXML
+    public Button savePassButton;
+    @FXML
+    public Label emailUpdatedLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -99,6 +130,7 @@ public class DashBoardUserController implements Initializable {
 
     public void showProfilePane(MouseEvent showProfileEvent) {
         rightSidePanBoard.setVisible(false);
+        profileBodyPane.setVisible(false);
         rightSidePanProfile.setVisible(true);
     }
 
@@ -115,9 +147,74 @@ public class DashBoardUserController implements Initializable {
         MenuItem editEmail = new MenuItem("Change my email");
         MenuItem editPass = new MenuItem("Change my password");
 
+        showProfile.setOnAction(event -> {
+            changeEmailBodyPane.setVisible(false);
+            changeNameBodyPane.setVisible(false);
+            changePassBodyPane.setVisible(false);
+            profileBodyPane.setVisible(true);
+            try {
+                this.showProfileInfoLabels();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
+        });
+        editEmail.setOnAction(event -> {
+            changeNameBodyPane.setVisible(false);
+            changePassBodyPane.setVisible(false);
+            profileBodyPane.setVisible(false);
+            changeEmailBodyPane.setVisible(true);
+
+        });
+
+        editPass.setOnAction(event -> {
+            changeNameBodyPane.setVisible(false);
+            profileBodyPane.setVisible(false);
+            changeEmailBodyPane.setVisible(false);
+            changePassBodyPane.setVisible(true);
+
+        });
+
+        editName.setOnAction(event -> {
+            profileBodyPane.setVisible(false);
+            changeEmailBodyPane.setVisible(false);
+            changePassBodyPane.setVisible(false);
+            changeNameBodyPane.setVisible(true);
+
+        });
 
         profileMenuItems.addAll(showProfile, editEmail, editName, editPass);
         menuButton.getItems().addAll(profileMenuItems);
+    }
+
+
+    public void showProfileInfoLabels() throws SQLException {
+
+        infoBoxPane.setVisible(true);
+        profileMailInfoL.setVisible(true);
+        profileNameInfoL.setVisible(true);
+        profileNameInfoL.setText("Name:   " + LogInController.getInctance().userName());
+        profileMailInfoL.setText("E-mail: " + LogInController.getInctance().email());
+
+    }
+
+    public void updateUserEmailAction(ActionEvent updateEmailEvent) throws SQLException {
+        String oldEmail = LogInController.getInctance().email();
+        String newEmail = newEmailText.getText();
+        user.updateEmail(newEmail, oldEmail);
+        emailUpdatedLabel.setText("Your E-mail has been updated!");
+
+    }
+
+    public void updateUserNameAction(ActionEvent updateNameEvent) throws SQLException {
+        String email  = LogInController.getInctance().email();
+        String newName = newNameText.getText();
+        user.updateName(newName, email);
+    }
+
+    public void updateUserPasswordAction(ActionEvent updatePassEvent) throws SQLException {
+        String email  = LogInController.getInctance().email();
+        String newPass = newPassText.getText();
+        user.updatePass(newPass, email);
     }
 }

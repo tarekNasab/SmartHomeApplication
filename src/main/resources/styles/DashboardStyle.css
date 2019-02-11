@@ -224,3 +224,15 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
+
+
+
+#StatuesPane{
+    -fx-background-color: rgb(106, 104, 119);
+}
+#ChoosePositionPane{
+    -fx-background-color: rgb(106, 104, 119);
+}
+#ccommandPane{
+    -fx-background-color: rgb(106, 104, 119);
+}
