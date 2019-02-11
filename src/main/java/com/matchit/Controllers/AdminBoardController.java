@@ -1,6 +1,7 @@
 package com.matchit.Controllers;
 
 import com.matchit.LightSection.Light;
+import com.matchit.LightSection.Status;
 import com.matchit.Position.Position;
 import com.matchit.User.Admin;
 import javafx.collections.FXCollections;
@@ -31,6 +32,11 @@ public class AdminBoardController implements Initializable {
     Light light = new Light();
     ObservableList<String> choicOfPositions = FXCollections.observableArrayList();
 
+    Status status= new Status();
+
+    public void setStatus(){
+        status.strenght = 1.22f;
+    }
 
     @FXML
     public Pane rootPanAdmin;
@@ -241,6 +247,8 @@ public class AdminBoardController implements Initializable {
     public String getChoicOfPositions(ChoiceBox<String> choiceBox){
         String chosenPosition = choiceBox.getValue();
         return chosenPosition;
+
+
     }
 
 }

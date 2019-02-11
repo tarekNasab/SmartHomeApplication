@@ -4,6 +4,7 @@ import com.matchit.DB_Connection.ConnectionConfig;
 import com.matchit.Position.Position;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Light {
@@ -12,11 +13,23 @@ public class Light {
     protected int lightId, positionId;
     protected Status status;
     protected LightColor lightColor;
-    protected Position position;
+//    protected Position position;
 
 
     Position positionObj = new Position();
 
+    public Light(int lightId, int positionId, Status status, LightColor lightColor, Position position) {
+        this.lightId = lightId;
+        this.positionId = positionId;
+        this.status = status;
+        this.lightColor = lightColor;
+//        this.position = position;
+
+    }
+
+    public Light() {
+
+    }
 
     //Constructors
 
@@ -53,15 +66,13 @@ public class Light {
         this.lightColor = lightColor;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-
+//    public Position getPosition() {
+//        return position;
+//    }
+//
+//    public void setPosition(Position position) {
+//        this.position = position;
+//    }
 
 
     //Methods/Actions
@@ -77,12 +88,84 @@ public class Light {
         addLightSt.executeUpdate();
 
 
-
     }
 
 
-    public void selectLightByPosition(){
+    public int selectLightIDByPositionID(int positionId) throws SQLException {
+        int lightId = 0;
+        String selectLightQuery = "SELECT * FROM [Light] WHERE positionID= ?";
+        PreparedStatement selectLightPs = ConnectionConfig.prepareStatement(selectLightQuery);
+        selectLightPs.setInt(1, positionId);
+        ResultSet R = selectLightPs.executeQuery();
+        if (!R.isBeforeFirst()){
+            System.out.println("Not able to find " + positionId + "'s lightId!");
+        }
+        while (R.next()){
+            lightId=R.getInt("lightId");
+            System.out.println(lightId);
+        }
+
+        return lightId;
+    }
+
+    public void bringStatueLightByPositionName(String positionName) throws SQLException {
+        int myPositionId=positionObj.getPositionIDByName(positionName);
+        int myligtId=this.selectLightIDByPositionID(myPositionId);
+        double lightStatue=this.bringLightStatueByLightId(myligtId);
 
 
     }
+
+    public void bringLightColorByPositionName(String positionName) throws SQLException {
+        int mypositionId=positionObj.getPositionIDByName(positionName);
+        int myligtId=this.selectLightIDByPositionID(mypositionId);
+        String lightColor=this.bringLightColorByLightId(myligtId);
+    }
+
+
+    public double bringLightStatueByLightId(int lightId){
+        double lightStatue;
+
+      String bringlightStatueQuery=" SELECT status FROM [Light] WHERE lightId = ?";
+
+        try {
+            PreparedStatement bringLightStatuePS=ConnectionConfig.prepareStatement(bringlightStatueQuery);
+            bringLightStatuePS.setDouble(1,lightId);
+            ResultSet bringLightStatueRs=bringLightStatuePS.executeQuery();
+            while (bringLightStatueRs.next()){
+                lightStatue=bringLightStatueRs.getDouble("status");
+                System.out.println(lightStatue);
+                return lightStatue;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return Double.parseDouble(null);
+    }
+
+
+    public String bringLightColorByLightId(int lightId){
+        String lightColor;
+        String lightColorQuery=" SELECT lightColor FROM [Light] WHERE lightId = ?";
+        try {
+            PreparedStatement bringlightColorST=ConnectionConfig.prepareStatement(lightColorQuery);
+            bringlightColorST.setInt(1,lightId);
+            ResultSet bringLightColorRs=bringlightColorST.executeQuery();
+            while (bringLightColorRs.next()){
+                lightColor=bringLightColorRs.getString("lightColor");
+                System.out.println(lightColor);
+                return lightColor;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
+
+
 }
