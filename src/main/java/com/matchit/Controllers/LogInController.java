@@ -78,7 +78,9 @@ public class LogInController implements Initializable {
             Stage appStage = (Stage) ((Node) logInEvent.getSource()).getScene().getWindow();
             appStage.setScene(homePageScene);
             appStage.show();
+
         } else if (!loggedIn) {
+
             System.out.println("user can not log in");
 
         }

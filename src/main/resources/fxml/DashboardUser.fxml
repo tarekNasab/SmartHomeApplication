@@ -31,7 +31,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <Pane fx:id="rightSidePanBoard" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css" visible="false">
+      <Pane fx:id="rightSidePanBoard" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
          <children>
             <GridPane fx:id="imageGridView" prefHeight="520.0" prefWidth="600.0">
               <columnConstraints>
