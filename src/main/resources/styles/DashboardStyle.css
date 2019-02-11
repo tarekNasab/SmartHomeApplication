@@ -228,11 +228,11 @@
 
 
 #StatuesPane{
-    -fx-background-color: rgb(106, 104, 119);
+    -fx-background-color: rgba(106, 104, 119, 0.16);
 }
 #ChoosePositionPane{
-    -fx-background-color: rgb(106, 104, 119);
+    -fx-background-color: rgba(106, 104, 119, 0.16);
 }
 #ccommandPane{
-    -fx-background-color: rgb(106, 104, 119);
+    -fx-background-color: rgba(106, 104, 119, 0.16);
 }

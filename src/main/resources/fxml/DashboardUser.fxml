@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -46,7 +47,7 @@
                <children>
                   <Button fx:id="heatingButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" />
                   <Button fx:id="securityButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.rowIndex="1" />
-                  <Button fx:id="lightButton" alignment="CENTER" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" />
+                  <Button fx:id="lightButton" alignment="CENTER" mnemonicParsing="false" onAction="#showLightControllerPane" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" />
                   <Button fx:id="kitchenButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
@@ -147,16 +148,11 @@
             <Pane fx:id="ChoosePositionPane" layoutX="9.0" layoutY="10.0" prefHeight="173.0" prefWidth="248.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
                   <Separator layoutX="234.0" layoutY="19.0" orientation="VERTICAL" prefHeight="132.0" prefWidth="2.0" />
-                  <MenuButton fx:id="choosePositionMenu" layoutX="33.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" text="MenuButton">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                  </MenuButton>
+                  <ChoiceBox fx:id="choosePositionBox" layoutY="2.0" prefHeight="25.0" prefWidth="232.0" />
                </children></Pane>
             <Pane fx:id="StatuesPane" layoutX="265.0" layoutY="10.0" prefHeight="173.0" prefWidth="326.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
-                  <Label fx:id="lightStatuesLabel" layoutX="8.0" layoutY="3.0" text="Light Statues:" textFill="WHITE" />
+                  <Label fx:id="lightStatuesLabel" layoutX="8.0" layoutY="4.0" text="Light Statues:" textFill="WHITE" />
                   <VBox layoutX="14.0" layoutY="20.0" prefHeight="142.0" prefWidth="299.0">
                      <children>
                         <Label fx:id="onOffStatue" layoutX="10.0" layoutY="27.0" prefHeight="47.0" prefWidth="304.0" />
@@ -167,13 +163,12 @@
                </children></Pane>
             <Pane fx:id="ccommandPane" layoutX="9.0" layoutY="196.0" prefHeight="318.0" prefWidth="581.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
-                  <MenuButton fx:id="chooseCommandMenu" layoutX="14.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="474.0" text="MenuButton">
+                  <MenuButton fx:id="chooseCommandMenu" layoutX="14.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="556.0" text="Do something..">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Action 1" />
                         <MenuItem mnemonicParsing="false" text="Action 2" />
                      </items>
                   </MenuButton>
-                  <Button fx:id="doCommandButton" layoutX="507.0" layoutY="271.0" mnemonicParsing="false" text="Button" />
                   <Label fx:id="updatedStatueLabel" layoutX="14.0" layoutY="14.0" text="Updated Statue:" textFill="#fcf8f8" />
                   <VBox layoutX="14.0" layoutY="46.0" prefHeight="166.0" prefWidth="545.0">
                      <children>
@@ -183,7 +178,7 @@
                      </children>
                   </VBox>
                </children></Pane>
-            <Separator layoutX="108.0" layoutY="189.0" prefWidth="400.0" />
+            <Separator layoutX="106.0" layoutY="189.0" prefWidth="400.0" />
          </children>
       </Pane>
    </children>

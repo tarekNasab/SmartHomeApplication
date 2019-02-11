@@ -1,5 +1,6 @@
 package com.matchit.Controllers;
 
+import com.matchit.Position.Position;
 import com.matchit.User.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,8 +27,21 @@ import java.util.ResourceBundle;
 
 public class DashBoardUserController implements Initializable {
 
+    ObservableList<String> choicOfPositions = FXCollections.observableArrayList();
     ObservableList<MenuItem> profileMenuItems = FXCollections.observableArrayList();
     User user = new User();
+    Position position = new Position();
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     public AnchorPane dbBK;
@@ -80,6 +94,8 @@ public class DashBoardUserController implements Initializable {
     @FXML
     public Button saveEmailButton;
     @FXML
+    public Label emailUpdatedLabel;
+    @FXML
     public Pane changeNameBodyPane;
     @FXML
     public TextField newNameText;
@@ -88,11 +104,39 @@ public class DashBoardUserController implements Initializable {
     @FXML
     public Pane changePassBodyPane;
     @FXML
-    public TextField newPassText;
-    @FXML
     public Button savePassButton;
     @FXML
-    public Label emailUpdatedLabel;
+    public PasswordField newPassText;
+    @FXML
+    public Pane rightSideLightControlPane;
+    @FXML
+    public Pane ChoosePositionPane;
+    @FXML
+    public ChoiceBox<String> choosePositionBox;
+    @FXML
+    public Pane StatuesPane;
+    @FXML
+    public Label lightStatuesLabel;
+    @FXML
+    public Label onOffStatue;
+    @FXML
+    public Label strengthStatue;
+    @FXML
+    public Label colorStatue;
+    @FXML
+    public Pane ccommandPane;
+    @FXML
+    public MenuButton chooseCommandMenu;
+    @FXML
+    public Button doCommandButton;
+    @FXML
+    public Label updatedStatueLabel;
+    @FXML
+    public Label updatedStatueOnOff;
+    @FXML
+    public Label updatedStatueStrength;
+    @FXML
+    public Label updatedStatueColor;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -106,6 +150,13 @@ public class DashBoardUserController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        try {
+            laodPositionChoiceData(choosePositionBox);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
@@ -124,6 +175,7 @@ public class DashBoardUserController implements Initializable {
 
     public void onDashBoardShowRightPane(MouseEvent showBoardPaneEvent) {
         rightSidePanProfile.setVisible(false);
+        rightSideLightControlPane.setVisible(false);
         rightSidePanBoard.setVisible(true);
 
     }
@@ -131,6 +183,7 @@ public class DashBoardUserController implements Initializable {
     public void showProfilePane(MouseEvent showProfileEvent) {
         rightSidePanBoard.setVisible(false);
         profileBodyPane.setVisible(false);
+        rightSideLightControlPane.setVisible(false);
         rightSidePanProfile.setVisible(true);
     }
 
@@ -217,4 +270,46 @@ public class DashBoardUserController implements Initializable {
         String newPass = newPassText.getText();
         user.updatePass(newPass, email);
     }
+
+
+//    public void laodPositionChoiceData(MenuButton menuButton) throws SQLException {
+//        choicOfPositions.removeAll();
+//        ArrayList<Position> allPositions = position.bringPositionNames();
+//        for (Position position: allPositions) {
+//            String posName = position.getPositionName();
+//            MenuItem myItem= new MenuItem(posName);
+//            choicOfPositions.addAll(myItem);
+//        }
+//        menuButton.getItems().addAll(choicOfPositions);
+//    }
+
+
+    public void showLightControllerPane(ActionEvent showControllerPane){
+        rightSideLightControlPane.setVisible(true);
+    }
+
+
+
+    public void laodPositionChoiceData(ChoiceBox<String> choosePositionBox) throws SQLException {
+        choicOfPositions.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for (Position position: allPositions) {
+            String posName = position.getPositionName();
+            choicOfPositions.addAll(posName);
+
+        }
+        choosePositionBox.getItems().addAll(choicOfPositions);
+    }
+
+
+
+    public String getChoicOfPositions(ChoiceBox<String> choiceBox){
+        String chosenPosition = choiceBox.getValue();
+        return chosenPosition;
+    }
+
+
+
+
+
 }
