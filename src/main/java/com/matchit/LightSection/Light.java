@@ -79,4 +79,10 @@ public class Light {
 
 
     }
+
+
+    public void selectLightByPosition(){
+
+
+    }
 }

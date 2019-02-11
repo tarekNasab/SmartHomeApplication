@@ -68,7 +68,7 @@ public class Admin {
 
     public boolean logInAdmain(String enteredEmail , String eneteredPass) throws SQLException {
 
-        String logInQueryAd = "SELECT * FROM [admin] WHERE email = ? AND password = ?" ;
+        String logInQueryAd = "SELECT * FROM [admain] WHERE email = ? AND password = ?" ;
         PreparedStatement logInStatement = ConnectionConfig.prepareStatement(logInQueryAd);
 
         logInStatement.setString(1 , enteredEmail);
