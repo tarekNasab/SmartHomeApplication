@@ -15,14 +15,15 @@ public class Command {
 
 
     // Constructors
-    public Command () {
+    public Command() {
 
     }
 
-    public Command( String commandLabel, String commandType) {
+    public Command(String commandLabel, int commandID, String commandType) {
 
-        this. CommandLabel = commandLabel;
+        this.CommandLabel = commandLabel;
         this.CommandType = commandType;
+        this.CommandID = commandID;
     }
 
     // Set method
@@ -37,28 +38,22 @@ public class Command {
     }
 
 
-
     // -----------------   Get All Commands  ------------------
 
-    public ArrayList<Command> getAllCommands(String commandType) throws SQLException {
+    public ArrayList<String> getAllCommands(String commandType) throws SQLException {
 
-        ArrayList<Command> commands = new ArrayList<>();
+        ArrayList<String> commands = new ArrayList<>();
 
-        String commandLabelQuery = "select * from [LightCommand]";
-        PreparedStatement positionNamesSt = ConnectionConfig.prepareStatement(commandLabelQuery);
-        ResultSet CommandLabelRs = positionNamesSt.executeQuery();
+        String commandLabelQuery = "SELECT * FROM [Command] WHERE commandType = ? ";
+        PreparedStatement bringCommandsST = ConnectionConfig.prepareStatement(commandLabelQuery);
 
+        ResultSet CommandLabelRs = bringCommandsST.executeQuery();
+        bringCommandsST.setString(1,commandType);
         while (CommandLabelRs.next()) {
-            String commandLabel = CommandLabelRs.getString("commandLabel");
-            System.out.println(commandLabel);
 
-            int commandID = CommandLabelRs.getInt("commandID");
-            System.out.println(commandID);
-
-            String CommandType = CommandLabelRs.getString("commandType");
-
-            Command myCommand = new Command(commandLabel, CommandType);
+            String myCommand = CommandLabelRs.getString("commandLabel");
             commands.add(myCommand);
+
         }
 
 
@@ -66,43 +61,6 @@ public class Command {
 
     }
 
-    //--------------------    Add Command   ------------------
 
-    public void addCommand(String commandLabel, String commandType){
-        try {
-            String addCommandQuery = "INSERT INTO [Command] VALUES (?, ?)";
-            PreparedStatement ps = ConnectionConfig.prepareStatement(addCommandQuery);
-
-
-
-            ps.setString(1, commandLabel);
-            ps.setString(2, commandType);
-            ps.executeUpdate();
-            System.out.println("New command inserted.");
-
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
-    // ------------------ Delete Command By CommandLabel --------------
-
-    public static void DeleteCommandByLabel(String commandLabel) {
-        try {
-            String CommandQuery = "Delete from [Command] where commandLabel =? ";
-
-            PreparedStatement ps = ConnectionConfig.prepareStatement(CommandQuery);
-
-
-            ps.setString(1, commandLabel);
-            ps.executeUpdate();
-            System.out.println("Command  deleted.");
-
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
 }
