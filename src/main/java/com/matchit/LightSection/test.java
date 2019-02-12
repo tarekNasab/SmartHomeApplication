@@ -13,6 +13,7 @@ public class test {
         Light newlig=new Light();
         newlig.bringLightColorByPositionName("Kitchen");
         newlig.bringStatueLightByPositionName("Kitchen");
+//        System.out.println(newlig);
 
 //       double me= newlig.bringLightStatue(1);
 //        System.out.println(me);
