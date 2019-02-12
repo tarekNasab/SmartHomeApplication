@@ -1,5 +1,6 @@
 package com.matchit.Controllers;
 
+import com.matchit.Commands.Command;
 import com.matchit.Position.Position;
 import com.matchit.User.User;
 import javafx.collections.FXCollections;
@@ -29,6 +30,8 @@ public class DashBoardUserController implements Initializable {
 
     ObservableList<String> choicOfPositions = FXCollections.observableArrayList();
     ObservableList<MenuItem> profileMenuItems = FXCollections.observableArrayList();
+    ObservableList<MenuItem>choicCommandMenuItems=FXCollections.observableArrayList();
+    ArrayList<Command> commands=new ArrayList<Command>();
     User user = new User();
     Position position = new Position();
 
@@ -156,6 +159,7 @@ public class DashBoardUserController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        setActionsCommandMenuItems(chooseCommandMenu);
 
     }
 
@@ -186,7 +190,22 @@ public class DashBoardUserController implements Initializable {
         rightSideLightControlPane.setVisible(false);
         rightSidePanProfile.setVisible(true);
     }
+    public void setActionsCommandMenuItems(MenuButton menuButton){
+        menuButton.getItems().clear();
+        choicCommandMenuItems.removeAll();
+        MenuItem turnOn=new MenuItem("Turn On Light");
+        MenuItem turnOf=new MenuItem("Turn Of Light");
+        MenuItem autoModeLight=new MenuItem("Auto Mode");
+        MenuItem increasStrength=new MenuItem("+");
+        MenuItem discreasStrength=new MenuItem("-");
+        choicCommandMenuItems.addAll(turnOn,turnOf,autoModeLight,increasStrength,discreasStrength);
+        menuButton.getItems().addAll(choicCommandMenuItems);
+        turnOn.setOnAction(event -> {
+            System.out.println("mmm");
 
+
+        });
+    }
 
     public void setActionsMenuProfile(MenuButton menuButton) {
 
