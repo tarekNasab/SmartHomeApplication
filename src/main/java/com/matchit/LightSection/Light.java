@@ -97,43 +97,45 @@ public class Light {
         PreparedStatement selectLightPs = ConnectionConfig.prepareStatement(selectLightQuery);
         selectLightPs.setInt(1, positionId);
         ResultSet R = selectLightPs.executeQuery();
-        if (!R.isBeforeFirst()){
+        if (!R.isBeforeFirst()) {
             System.out.println("Not able to find " + positionId + "'s lightId!");
         }
-        while (R.next()){
-            lightId=R.getInt("lightId");
+        while (R.next()) {
+            lightId = R.getInt("lightId");
             System.out.println(lightId);
         }
 
         return lightId;
     }
 
-    public void bringStatueLightByPositionName(String positionName) throws SQLException {
-        int myPositionId=positionObj.getPositionIDByName(positionName);
-        int myligtId=this.selectLightIDByPositionID(myPositionId);
-        double lightStatue=this.bringLightStatueByLightId(myligtId);
-
+    public double bringStatueLightByPositionName(String positionName) throws SQLException {
+        int myPositionId = positionObj.getPositionIDByName(positionName);
+        int myligtId = this.selectLightIDByPositionID(myPositionId);
+        double lightStatue = this.bringLightStatueByLightId(myligtId);
+        return lightStatue;
 
     }
 
-    public void bringLightColorByPositionName(String positionName) throws SQLException {
-        int mypositionId=positionObj.getPositionIDByName(positionName);
-        int myligtId=this.selectLightIDByPositionID(mypositionId);
-        String lightColor=this.bringLightColorByLightId(myligtId);
+    public String bringLightColorByPositionName(String positionName) throws SQLException {
+        int mypositionId = positionObj.getPositionIDByName(positionName);
+        int myligtId = this.selectLightIDByPositionID(mypositionId);
+        String lightColor = this.bringLightColorByLightId(myligtId);
+        return lightColor;
+
     }
 
 
-    public double bringLightStatueByLightId(int lightId){
+    public double bringLightStatueByLightId(int lightId) {
         double lightStatue;
 
-      String bringlightStatueQuery=" SELECT status FROM [Light] WHERE lightId = ?";
+        String bringlightStatueQuery = " SELECT status FROM [Light] WHERE lightId = ?";
 
         try {
-            PreparedStatement bringLightStatuePS=ConnectionConfig.prepareStatement(bringlightStatueQuery);
-            bringLightStatuePS.setDouble(1,lightId);
-            ResultSet bringLightStatueRs=bringLightStatuePS.executeQuery();
-            while (bringLightStatueRs.next()){
-                lightStatue=bringLightStatueRs.getDouble("status");
+            PreparedStatement bringLightStatuePS = ConnectionConfig.prepareStatement(bringlightStatueQuery);
+            bringLightStatuePS.setDouble(1, lightId);
+            ResultSet bringLightStatueRs = bringLightStatuePS.executeQuery();
+            while (bringLightStatueRs.next()) {
+                lightStatue = bringLightStatueRs.getDouble("status");
                 System.out.println(lightStatue);
                 return lightStatue;
             }
@@ -146,15 +148,15 @@ public class Light {
     }
 
 
-    public String bringLightColorByLightId(int lightId){
+    public String bringLightColorByLightId(int lightId) {
         String lightColor;
-        String lightColorQuery=" SELECT lightColor FROM [Light] WHERE lightId = ?";
+        String lightColorQuery = " SELECT lightColor FROM [Light] WHERE lightId = ?";
         try {
-            PreparedStatement bringlightColorST=ConnectionConfig.prepareStatement(lightColorQuery);
-            bringlightColorST.setInt(1,lightId);
-            ResultSet bringLightColorRs=bringlightColorST.executeQuery();
-            while (bringLightColorRs.next()){
-                lightColor=bringLightColorRs.getString("lightColor");
+            PreparedStatement bringlightColorST = ConnectionConfig.prepareStatement(lightColorQuery);
+            bringlightColorST.setInt(1, lightId);
+            ResultSet bringLightColorRs = bringlightColorST.executeQuery();
+            while (bringLightColorRs.next()) {
+                lightColor = bringLightColorRs.getString("lightColor");
                 System.out.println(lightColor);
                 return lightColor;
             }
@@ -164,8 +166,6 @@ public class Light {
 
         return null;
     }
-
-
 
 
 }
