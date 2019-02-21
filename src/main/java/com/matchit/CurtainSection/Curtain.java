@@ -164,7 +164,7 @@ public class Curtain {
         ResultSet Rs=bringCurtainBySideAndPositionNameSt.executeQuery();
         while (Rs.next()){
             curtainId=Rs.getInt("curtainId");
-            
+
             return curtainId;
 
 
