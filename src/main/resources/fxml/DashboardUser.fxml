@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
@@ -31,7 +32,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <Pane fx:id="rightSidePanBoard" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
+      <Pane fx:id="rightSidePanBoard" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css" visible="false">
          <children>
             <GridPane fx:id="imageGridView" prefHeight="520.0" prefWidth="600.0">
               <columnConstraints>
@@ -45,7 +46,7 @@
                 <RowConstraints />
               </rowConstraints>
                <children>
-                  <Button fx:id="heatingButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" />
+                  <Button fx:id="heatingButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onHeatingButtonAction" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" />
                   <Button fx:id="securityButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.rowIndex="1" />
                   <Button fx:id="lightButton" alignment="CENTER" mnemonicParsing="false" onAction="#showLightControllerPane" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" />
                   <Button fx:id="kitchenButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -143,7 +144,7 @@
          </children>
       </Pane>
       <Separator layoutX="189.0" layoutY="102.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="0.0" />
-      <Pane fx:id="rightSideLightControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css">
+      <Pane fx:id="rightSideLightControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css" visible="false">
          <children>
             <Pane fx:id="ChoosePositionPane" layoutX="9.0" layoutY="10.0" prefHeight="173.0" prefWidth="248.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
@@ -161,7 +162,7 @@
                      </children>
                   </VBox>
                </children></Pane>
-            <Pane fx:id="ccommandPane" layoutX="9.0" layoutY="196.0" prefHeight="318.0" prefWidth="581.0" stylesheets="@../styles/DashboardStyle.css">
+            <Pane fx:id="commandPane" layoutX="9.0" layoutY="196.0" prefHeight="318.0" prefWidth="581.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
                   <MenuButton fx:id="chooseCommandMenu" layoutX="14.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="556.0" text="Do something..">
                      <items>
@@ -181,5 +182,30 @@
             <Separator layoutX="106.0" layoutY="189.0" prefWidth="400.0" />
          </children>
       </Pane>
+      <Pane fx:id="rightSideHeatingControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false">
+         <children>
+            <VBox layoutX="70.0" layoutY="11.0" prefHeight="502.0" prefWidth="454.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onAcControllerAction" prefHeight="83.0" prefWidth="459.0" text="Ac Controller" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="459.0" text="Floor Ac Controller" />
+                  <Button layoutX="10.0" layoutY="93.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="459.0" text="Water Heater Controller" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="AcControllerPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false">
+         <children>
+            <ChoiceBox fx:id="choiceBoxForAc" layoutX="27.0" layoutY="11.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="AcIDchoiceBox" layoutX="200.0" layoutY="11.0" prefWidth="150.0" />
+            <MenuButton layoutX="400.0" layoutY="11.0" mnemonicParsing="false" text="MenuButton">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Increase" />
+                <MenuItem mnemonicParsing="false" text="Decrease" />
+              </items>
+            </MenuButton>
+            <TextArea fx:id="AcTextArea" layoutX="18.0" layoutY="280.0" prefHeight="195.0" prefWidth="519.0" />
+         </children></Pane>
+      <Pane fx:id="FloorAcControllerPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false" />
+      <Pane fx:id="WaterHeaterControllerPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false" />
    </children>
 </AnchorPane>

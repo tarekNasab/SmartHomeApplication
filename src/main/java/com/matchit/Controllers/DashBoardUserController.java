@@ -3,6 +3,7 @@ package com.matchit.Controllers;
 import com.matchit.Commands.Command;
 import com.matchit.Position.Position;
 import com.matchit.User.User;
+import com.sun.javafx.binding.StringFormatter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,9 +32,12 @@ public class DashBoardUserController implements Initializable {
     ObservableList<String> choicOfPositions = FXCollections.observableArrayList();
     ObservableList<MenuItem> profileMenuItems = FXCollections.observableArrayList();
     ObservableList<MenuItem>choicCommandMenuItems=FXCollections.observableArrayList();
+    ObservableList<String>choicOfPosiForAc=FXCollections.observableArrayList();
+
     ArrayList<Command> commands=new ArrayList<Command>();
     User user = new User();
     Position position = new Position();
+    Command command=new Command();
 
 
 
@@ -116,6 +120,7 @@ public class DashBoardUserController implements Initializable {
     public Pane ChoosePositionPane;
     @FXML
     public ChoiceBox<String> choosePositionBox;
+
     @FXML
     public Pane StatuesPane;
     @FXML
@@ -127,7 +132,7 @@ public class DashBoardUserController implements Initializable {
     @FXML
     public Label colorStatue;
     @FXML
-    public Pane ccommandPane;
+    public Pane commandPane;
     @FXML
     public MenuButton chooseCommandMenu;
     @FXML
@@ -140,6 +145,20 @@ public class DashBoardUserController implements Initializable {
     public Label updatedStatueStrength;
     @FXML
     public Label updatedStatueColor;
+    @FXML
+    public Pane rightSideHeatingControlPane;
+    @FXML
+    public Pane AcControllerPane;
+    @FXML
+    public Pane FloorAcControllerPane;
+    @FXML
+    public Pane WaterHeaterControllerPane;
+    @FXML
+    public TextArea AcTextArea;
+    @FXML
+    public ChoiceBox<String> choiceBoxForAc;
+    @FXML
+    public ChoiceBox<String> AcIDchoiceBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -147,6 +166,11 @@ public class DashBoardUserController implements Initializable {
         setActionsMenuProfile(profileMenuB);
         rightSidePanProfile.setVisible(false);
         rightSidePanBoard.setVisible(false);
+        try {
+            laodPositionChoiceForAc();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         try {
             setWelcomUser(LogInController.getInctance().userName());
@@ -181,6 +205,8 @@ public class DashBoardUserController implements Initializable {
         rightSidePanProfile.setVisible(false);
         rightSideLightControlPane.setVisible(false);
         rightSidePanBoard.setVisible(true);
+        rightSideHeatingControlPane.setVisible(false);
+        AcControllerPane.setVisible(false);
 
     }
 
@@ -328,7 +354,32 @@ public class DashBoardUserController implements Initializable {
     }
 
 
+    //--------- Heating Button Action---------
+    public void onHeatingButtonAction(){
+        rightSidePanBoard.setVisible(false);
+        profileBodyPane.setVisible(false);
+        rightSideLightControlPane.setVisible(false);
+        rightSidePanProfile.setVisible(false);
+        rightSideHeatingControlPane.setVisible(true);
+    }
 
+    // --------- bringPositionNameToChoiceBox---------
+    public void laodPositionChoiceForAc() throws SQLException {
+        choicOfPosiForAc.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for (Position position: allPositions) {
+            String posName = position.getPositionName();
+            choicOfPosiForAc.addAll(posName);
 
+        }
+        choiceBoxForAc.getItems().addAll(choicOfPosiForAc);
+    }
+
+    //----- Ac Controller Button ------
+    public void onAcControllerAction(){
+        AcControllerPane.setVisible(true);
+        rightSideHeatingControlPane.setVisible(false);
+
+    }
 
 }

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -27,6 +28,7 @@
       <Pane fx:id="rightPaneSetupHome" layoutX="244.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
          <children>
             <Button fx:id="lightsButtonAdmin" alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#onLightsAction" prefHeight="154.0" prefWidth="182.0" text="Lights" />
+            <Button fx:id="HeatingButtonAdmin" alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="174.0" mnemonicParsing="false" onAction="#onHeatingAction" prefHeight="154.0" prefWidth="182.0" text="Heating" />
          </children></Pane>
       <Pane fx:id="rightPaneAddPosition" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
          <children>
@@ -47,7 +49,7 @@
             <Font name="SansSerif Regular" size="14.0" />
          </font>
       </Label>
-      <Pane fx:id="rightPaneAddLightPane" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css">
+      <Pane fx:id="rightPaneAddLightPane" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" stylesheets="@../styles/AdminDashboardStyle.css" visible="false">
          <children>
             <Label fx:id="noPositionLabel" layoutX="169.0" layoutY="117.0" prefHeight="25.0" prefWidth="217.0" textAlignment="CENTER" textFill="#d31b1b">
                <font>
@@ -78,6 +80,49 @@
             </VBox>
          </children>
       </Pane>
+      <Pane fx:id="rightPanHeatingBoard" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" visible="false">
+         <children>
+            <VBox fx:id="HeatingVBox" layoutX="96.0" layoutY="60.0" prefHeight="380.0" prefWidth="372.0">
+               <children>
+                  <Button fx:id="AddAcB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAddAcButtonAction" prefHeight="70.0" prefWidth="372.0" text="Add AC / Remove AC" />
+                  <Button fx:id="AddFloorAcB" mnemonicParsing="false" onAction="#onAddFloorAcButtonAction" prefHeight="70.0" prefWidth="372.0" text="Add FloofAC / Remove FloorAC" />
+                  <Button fx:id="AddWaterHeaterB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAddWaterHeaterAction" prefHeight="70.0" prefWidth="372.0" text="Add WaterHeater / Remove WaterHeater" />
+                  <Button fx:id="CustomizeB" mnemonicParsing="false" prefHeight="70.0" prefWidth="372.0" text="Customize Heating" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="AddAcPane" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" visible="false">
+         <children>
+            <ChoiceBox fx:id="AcChoiceBoxToAdd" layoutX="30.0" layoutY="20.0" prefWidth="150.0" />
+            <Label layoutX="250.0" layoutY="22.0" text="Choice position to add ac" textFill="WHITE" />
+            <Separator layoutX="170.0" layoutY="250.0" prefWidth="200.0" />
+            <ChoiceBox fx:id="AcChoiceBoxToRemove" layoutX="30.0" layoutY="270.0" prefWidth="150.0" />
+            <Label layoutX="250.0" layoutY="271.0" text="Choice position to remove" textFill="WHITE" />
+            <Button fx:id="addAcButton" layoutX="400.0" layoutY="20.0" mnemonicParsing="false" onAction="#AddAcButtonAction" text="Add ac" />
+            <Button fx:id="RemoveAcButton" layoutX="400.0" layoutY="270.0" mnemonicParsing="false" onAction="#AddAcButtonAction" text="Remove ac" />
+            <Label fx:id="printAcAddedMsg" layoutX="200.0" layoutY="150.0" textFill="#10cd1a" />
+         </children>
+      </Pane>
+      <Pane fx:id="FloorAcPane" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" visible="false">
+         <children>
+            <Button layoutX="440.0" layoutY="30.0" mnemonicParsing="false" onAction="#AddFloorAcButtonAction" text="Add" />
+            <Button layoutX="440.0" layoutY="285.0" mnemonicParsing="false" text="Remove" />
+            <ChoiceBox fx:id="ChoiceBoxForAddF" layoutX="47.0" layoutY="30.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="ChoiceBoxForRemoveF" layoutX="47.0" layoutY="285.0" prefWidth="150.0" />
+            <Label layoutX="235.0" layoutY="30.0" text="Choice position to add FloorAc" textFill="WHITE" />
+            <Label layoutX="231.0" layoutY="287.0" text="Choice position to remove FloorAc" textFill="WHITE" />
+            <Separator layoutX="177.0" layoutY="250.0" prefWidth="200.0" />
+            <Label fx:id="FloorAcAddMsg" layoutX="263.0" layoutY="158.0" textFill="#10cd1d" />
+         </children>
+      </Pane>
+      <Pane fx:id="WaterHeaterPane" layoutX="242.0" layoutY="11.0" prefHeight="502.0" prefWidth="554.0" visible="false">
+         <children>
+            <Button layoutX="459.0" layoutY="53.0" mnemonicParsing="false" onAction="#addWaterHeaterButtonAction" text="Add" />
+            <ChoiceBox fx:id="AddHeaterChoiceBox" layoutX="96.0" layoutY="53.0" prefWidth="150.0" />
+            <Separator layoutX="162.0" layoutY="233.0" prefWidth="200.0" />
+            <Label fx:id="AddHeaterMsg" layoutX="234.0" layoutY="156.0" textFill="#0fcd38" />
+         </children></Pane>
 
 
 

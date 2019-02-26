@@ -140,6 +140,7 @@ public class Position {
 
 
 
+
     public ArrayList<Position> bringPositionNames() throws SQLException {
 
         ArrayList<Position> positions = new ArrayList<>();

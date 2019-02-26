@@ -19,5 +19,7 @@ public class MainToTest {
 //            e.printStackTrace();
 //        }
 
+        int s = pos.getPositionIDByName("Balcone");
+        System.out.println(s + "here");
     }
 }

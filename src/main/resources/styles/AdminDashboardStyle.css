@@ -49,6 +49,30 @@
 
 }
 
+#HeatingButtonAdmin{
+    -fx-text-fill: #ffff;
+    -fx-background-color: #4a494f;
+    -fx-background-image: url("../images/thermometerPink.png");
+    -fx-background-size: 54px 54px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+}
+
+
+#HeatingButtonAdmin:hover{
+    -fx-text-fill: #ffff;
+    -fx-background-color: #91ab46;
+    -fx-background-image: url("../images/thermometerColored.png");
+    -fx-background-size: 62px 62px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+}
+
+
+
+
 
 /*!*#addPositionButton {*!*/
 /*!*-fx-background-color: #4a494f;*!*/
@@ -82,6 +106,7 @@
     -fx-background-image: url("../images/add-contactWhite.png");
     -fx-background-size: 22px 22px;
 }
+
 
 
 /*#rightPan {*/

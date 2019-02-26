@@ -1,5 +1,6 @@
 package com.matchit.Controllers;
 
+import com.matchit.HeatingSection.HeatingHandling;
 import com.matchit.LightSection.Light;
 import com.matchit.LightSection.Status;
 import com.matchit.Position.Position;
@@ -30,7 +31,15 @@ public class AdminBoardController implements Initializable {
     Admin admin = new Admin();  //  Instance of Admin
     Position position = new Position();
     Light light = new Light();
+    HeatingHandling heatingHandling = new HeatingHandling();
     ObservableList<String> choicOfPositions = FXCollections.observableArrayList();
+    ObservableList<String> choicOfPositionsForAddAc = FXCollections.observableArrayList();
+    ObservableList<String> choicOfPositionsForRemoveAc = FXCollections.observableArrayList();
+    ObservableList<String> choicOfPositionsForAddFloorAc = FXCollections.observableArrayList();
+    ObservableList<String> choicOfPositionsForRemoveFloorAc = FXCollections.observableArrayList();
+    ObservableList<String> choicOfPositionsForAddWaterHeater = FXCollections.observableArrayList();
+
+
 
     Status status= new Status();
 
@@ -57,6 +66,8 @@ public class AdminBoardController implements Initializable {
     @FXML
     public Button lightsButtonAdmin;
     @FXML
+    public Button HeatingButtonAdmin;
+    @FXML
     public Pane rightPaneAddPosition;
     @FXML
     public Label positionNameLabel;
@@ -75,6 +86,16 @@ public class AdminBoardController implements Initializable {
     @FXML
     public Label goBack;
     @FXML
+    public Pane rightPaneAddLightPane;
+    @FXML
+    public Label noPositionLabel;
+    @FXML
+    public ChoiceBox<String> choosePositionBox;
+    @FXML
+    public Button addLightAfterChoose;
+    @FXML
+    public Label printSuccessMsg;
+    @FXML
     public Pane rightPanLightBoard;
     @FXML
     public Button addLightB;
@@ -87,15 +108,47 @@ public class AdminBoardController implements Initializable {
     @FXML
     public Button viewAllLightsB;
     @FXML
-    public Label noPositionLabel;
+    public Pane rightPanHeatingBoard;
     @FXML
-    public Pane rightPaneAddLightPane;
+    public VBox HeatingVBox;
     @FXML
-    public ChoiceBox<String> choosePositionBox;
+    public Button AddAcB;
     @FXML
-    public Button addLightAfterChoose;
+    public Button AddFloorAcB;
     @FXML
-    public Label printSuccessMsg;
+    public Button AddWaterHeaterB;
+    @FXML
+    public Button CustomizeB;
+    @FXML
+    public Pane AddAcPane;
+    @FXML
+    public ChoiceBox<String> AcChoiceBoxToAdd;
+    @FXML
+    public ChoiceBox<String> AcChoiceBoxToRemove;
+    @FXML
+    public Button addAcButton;
+    @FXML
+    public Button RemoveAcButton;
+    @FXML
+    public Label printAcAddedMsg;
+    @FXML
+    public Pane FloorAcPane;
+    @FXML
+    public ChoiceBox<String> ChoiceBoxForAddF;
+    @FXML
+    public ChoiceBox<String> ChoiceBoxForRemoveF;
+    @FXML
+    public Label FloorAcAddMsg;
+    @FXML
+    public Pane WaterHeaterPane;
+    @FXML
+    public ChoiceBox<String> AddHeaterChoiceBox;
+    @FXML
+    public Label AddHeaterMsg;
+
+
+
+
 
 
     @Override
@@ -107,6 +160,26 @@ public class AdminBoardController implements Initializable {
         noPositionLabel.setVisible(false);
         rightPanLightBoard.setVisible(false);
         rightPaneAddLightPane.setVisible(false);
+        try {
+            lodPositionChoiceForAddWaterHeater();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            laodPositionChoiceForAddFloorAc();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            laodPositionChoiceForRemoveAc();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            laodPositionChoiceForAddAc();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         try {
             laodPositionChoiceData();
         } catch (SQLException e) {
@@ -123,6 +196,13 @@ public class AdminBoardController implements Initializable {
         rightPaneAddUser.setVisible(false);
         rightPaneAddPosition.setVisible(false);
         rightPaneSetupHome.setVisible(true);
+        rightPanHeatingBoard.setVisible(false);
+        AddAcPane.setVisible(false);
+        FloorAcPane.setVisible(false);
+        WaterHeaterPane.setVisible(false);
+
+
+
 
     }
 
@@ -242,11 +322,125 @@ public class AdminBoardController implements Initializable {
         choosePositionBox.getItems().addAll(choicOfPositions);
     }
 
+    //----------- Get positions for add ac ----------
+    public void laodPositionChoiceForAddAc() throws SQLException {
+        choicOfPositionsForAddAc.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for (Position position: allPositions) {
+            String posName = position.getPositionName();
+            choicOfPositionsForAddAc.addAll(posName);
+
+        }
+        AcChoiceBoxToAdd.getItems().addAll(choicOfPositionsForAddAc);
+    }
+
+    // --------------- Get positions for add floorAc---------
+    public void laodPositionChoiceForAddFloorAc() throws SQLException {
+        choicOfPositionsForAddFloorAc.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for (Position position: allPositions) {
+            String posName = position.getPositionName();
+            choicOfPositionsForAddFloorAc.addAll(posName);
+
+        }
+        ChoiceBoxForAddF.getItems().addAll(choicOfPositionsForAddFloorAc);
+    }
+
+
+
+
+    //---------- get position for remove ac---------
+    public void laodPositionChoiceForRemoveAc() throws SQLException {
+        choicOfPositionsForRemoveAc.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for (Position position: allPositions) {
+            String posName = position.getPositionName();
+            choicOfPositionsForRemoveAc.addAll(posName);
+            //TODO we need to know how we will do that.
+
+        }
+        AcChoiceBoxToRemove.getItems().addAll(choicOfPositionsForRemoveAc);
+    }
+
+    //-------- Get position for add waterHeater----------
+    public void lodPositionChoiceForAddWaterHeater() throws SQLException {
+        choicOfPositionsForAddWaterHeater.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for(Position position: allPositions) {
+            String posName = position.getPositionName();
+            choicOfPositionsForAddWaterHeater.addAll(posName);
+        }
+        AddHeaterChoiceBox.getItems().addAll(choicOfPositionsForAddWaterHeater);
+    }
+
+    //---------- Add ac after choice position----------
+    public void AddAcButtonAction(ActionEvent addEvent) throws SQLException {
+        String positionNameToAddAc = getChoicOfPositions(AcChoiceBoxToAdd);
+
+        System.out.println(positionNameToAddAc + " Alaa tested");
+        heatingHandling.addAcToPosition(positionNameToAddAc);
+        printAcAddedMsg.setText("AC has been added to " + positionNameToAddAc);
+        //TODO just one FloorAc in the room.
+
+    }
+
+    // ------------Add floorAc after choice position---------
+
+    public void AddFloorAcButtonAction(ActionEvent addFloorAcEvent) throws SQLException {
+
+        String positionNameToAddFloorAc = getChoicOfPositions(ChoiceBoxForAddF);
+
+        heatingHandling.addFloorAcToPosition(positionNameToAddFloorAc);
+        FloorAcAddMsg.setText("FloorAc has been added to " + positionNameToAddFloorAc);
+    }
+
+
+    // --------- addWaterHeater after choice position-----------
+    public void addWaterHeaterButtonAction(ActionEvent addWaterHeater) throws SQLException {
+        String positionNameToAddWaterHeater = getChoicOfPositions(AddHeaterChoiceBox);
+
+        heatingHandling.addWaterHeatingToPosition(positionNameToAddWaterHeater);
+
+        AddHeaterMsg.setText("WaterHeater has been added to " + positionNameToAddWaterHeater);
+    }
+
+
+
 
 
     public String getChoicOfPositions(ChoiceBox<String> choiceBox){
         String chosenPosition = choiceBox.getValue();
         return chosenPosition;
+
+
+    }
+
+    public void onHeatingAction(ActionEvent clickOnHeatingEvent){
+
+        rightPaneAddUser.setVisible(false);
+        rightPaneSetupHome.setVisible(false);
+        rightPaneAddPosition.setVisible(false);
+        noPositionLabel.setVisible(false);
+        rightPanLightBoard.setVisible(false);
+        rightPanHeatingBoard.setVisible(true);
+
+    }
+
+    public void onAddWaterHeaterAction(ActionEvent WaterHeaterEvent){
+        WaterHeaterPane.setVisible(true);
+        rightPanHeatingBoard.setVisible(false);
+    }
+
+
+    public void onAddAcButtonAction(){
+        AddAcPane.setVisible(true);
+        rightPanHeatingBoard.setVisible(false);
+    }
+
+    public void onAddFloorAcButtonAction(){
+
+        FloorAcPane.setVisible(true);
+        rightPanHeatingBoard.setVisible(false);
 
 
     }
