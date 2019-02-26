@@ -6,19 +6,21 @@ import com.matchit.Position.Position;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Light {
 
     //Fields
     protected int lightId, positionId;
-    protected Status status;
-    protected LightColor lightColor;
+    protected double status;
+    protected String lightColor;
 //    protected Position position;
 
 
     Position positionObj = new Position();
 
-    public Light(int lightId, int positionId, Status status, LightColor lightColor, Position position) {
+
+    public Light(int lightId, int positionId, double status, String lightColor, Position position) {
         this.lightId = lightId;
         this.positionId = positionId;
         this.status = status;
@@ -50,23 +52,23 @@ public class Light {
         this.positionId = positionId;
     }
 
-    public Status getStatus() {
+    public double getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(double status) {
         this.status = status;
     }
 
-    public LightColor getLightColor() {
+    public String getLightColor() {
         return lightColor;
     }
 
-    public void setLightColor(LightColor lightColor) {
+    public void setLightColor(String lightColor) {
         this.lightColor = lightColor;
     }
 
-//    public Position getPosition() {
+    //    public Position getPosition() {
 //        return position;
 //    }
 //
@@ -125,6 +127,37 @@ public class Light {
     }
 
 
+    public ArrayList<Light> bringAllLightsList(String positionName) throws SQLException {
+        ArrayList<Light> lights = new ArrayList<>();
+        int positionId = positionObj.getPositionIDByName(positionName);
+        String bringLightsQuery = "SELECT * FROM [Light] WHERE positionID= ? ";
+        PreparedStatement lightsPs = ConnectionConfig.prepareStatement(bringLightsQuery);
+        lightsPs.setInt(1, positionId);
+        ResultSet lightsRs = lightsPs.executeQuery();
+
+        if (!lightsRs.isBeforeFirst()) {
+            System.out.println("There are no lights in " + positionName);
+
+        }
+
+        while (lightsRs.next()) {
+
+            int lightId = lightsRs.getInt("lightID");
+            String color = lightsRs.getString("color");
+            double status = lightsRs.getDouble("status");
+            Light light = new Light();
+            light.setLightId(lightId);
+            light.setLightColor(color);
+            light.setStatus(status);
+
+            lights.add(light);
+
+        }
+
+
+        return lights;
+    }
+
     public double bringLightStatueByLightId(int lightId) {
         double lightStatue;
 
@@ -168,4 +201,28 @@ public class Light {
     }
 
 
+    public void saveLightColorInDb(String colorString, int  lightId) throws SQLException {
+
+        String saveColorQ = "Update [Light] SET color=? WHERE lightID = ?";
+        PreparedStatement saveColorPs = ConnectionConfig.prepareStatement(saveColorQ);
+        saveColorPs.setString(1, colorString);
+        saveColorPs.setInt(2, lightId);
+
+        saveColorPs.executeUpdate();
+        System.out.println("colorUpdated");
+    }
+
+    public void saveLightStatuInDB(Number newValue, int lightId) throws SQLException {
+
+        double statu= newValue.doubleValue();
+        String saveStatuQ = "UPDATE [Light] SET status = ? WHERE lightID = ?";
+        PreparedStatement saveStatuPs = ConnectionConfig.prepareStatement(saveStatuQ);
+        saveStatuPs.setDouble(1, statu);
+        saveStatuPs.setInt(2, lightId);
+        saveStatuPs.executeUpdate();
+
+
+
+
+    }
 }
