@@ -154,6 +154,7 @@ public class DashBoardUserController implements Initializable {
         setActionsMenuProfile(profileMenuB);
         rightSidePanProfile.setVisible(false);
         rightSidePanBoard.setVisible(false);
+        rightSideLightControlPane.setVisible(false);
 
         try {
             bringPositionChoiceData(HeatingchoiceBox);
@@ -195,6 +196,7 @@ public class DashBoardUserController implements Initializable {
         rightSidePanProfile.setVisible(false);
         rightSideLightControlPane.setVisible(false);
         rightSidePanBoard.setVisible(true);
+
 
     }
 
@@ -319,6 +321,9 @@ public class DashBoardUserController implements Initializable {
 
 
     public void showLightControllerPane(ActionEvent showControllerPane) {
+        rightSidePanProfile.setVisible(false);
+        rightSideLightControlPane.setVisible(false);
+        rightSidePanBoard.setVisible(false);
         rightSideLightControlPane.setVisible(true);
     }
 
