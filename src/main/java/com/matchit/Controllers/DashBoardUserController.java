@@ -1,12 +1,15 @@
 package com.matchit.Controllers;
 
 import com.matchit.Commands.Command;
+import com.matchit.LightSection.Light;
 import com.matchit.Position.Position;
 import com.matchit.User.User;
-import com.sun.javafx.binding.StringFormatter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,9 +19,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,24 +32,15 @@ import java.util.ResourceBundle;
 public class DashBoardUserController implements Initializable {
 
     ObservableList<String> choicOfPositions = FXCollections.observableArrayList();
+    ObservableList<String> choicOfPositionsForHeating = FXCollections.observableArrayList();
     ObservableList<MenuItem> profileMenuItems = FXCollections.observableArrayList();
-    ObservableList<MenuItem>choicCommandMenuItems=FXCollections.observableArrayList();
-    ObservableList<String>choicOfPosiForAc=FXCollections.observableArrayList();
-
-    ArrayList<Command> commands=new ArrayList<Command>();
+    ObservableList<MenuItem> choicCommandMenuItems = FXCollections.observableArrayList();
+    ObservableList<HBox> hBoxes = FXCollections.observableArrayList();
+    ArrayList<Command> commands = new ArrayList<Command>();
     User user = new User();
     Position position = new Position();
-    Command command=new Command();
-
-
-
-
-
-
-
-
-
-
+    Light light = new Light();
+    static String value;
 
 
     @FXML
@@ -119,46 +112,41 @@ public class DashBoardUserController implements Initializable {
     @FXML
     public Pane ChoosePositionPane;
     @FXML
-    public ChoiceBox<String> choosePositionBox;
-
+    public ChoiceBox choosePositionBox;
     @FXML
     public Pane StatuesPane;
     @FXML
     public Label lightStatuesLabel;
     @FXML
-    public Label onOffStatue;
-    @FXML
-    public Label strengthStatue;
-    @FXML
-    public Label colorStatue;
-    @FXML
-    public Pane commandPane;
+    public Pane ccommandPane;
     @FXML
     public MenuButton chooseCommandMenu;
     @FXML
-    public Button doCommandButton;
-    @FXML
     public Label updatedStatueLabel;
     @FXML
-    public Label updatedStatueOnOff;
+    public ScrollPane ScrollPaneLightList;
     @FXML
-    public Label updatedStatueStrength;
+    public Pane PaneToScrollLight;
     @FXML
-    public Label updatedStatueColor;
+    public VBox insidePaneVBox;
+
+
+    @FXML
+    public Label statuShow;
+    @FXML
+    public Button showLights;
+    @FXML
+    public Label statuShowUpdate;
+    @FXML
+    public Label colorShow;
+    @FXML
+    public Label colorShowUpdate;
     @FXML
     public Pane rightSideHeatingControlPane;
     @FXML
-    public Pane AcControllerPane;
-    @FXML
-    public Pane FloorAcControllerPane;
-    @FXML
-    public Pane WaterHeaterControllerPane;
-    @FXML
-    public TextArea AcTextArea;
-    @FXML
-    public ChoiceBox<String> choiceBoxForAc;
-    @FXML
-    public ChoiceBox<String> AcIDchoiceBox;
+    public ChoiceBox<String> HeatingchoiceBox;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -166,8 +154,9 @@ public class DashBoardUserController implements Initializable {
         setActionsMenuProfile(profileMenuB);
         rightSidePanProfile.setVisible(false);
         rightSidePanBoard.setVisible(false);
+
         try {
-            laodPositionChoiceForAc();
+            bringPositionChoiceData(HeatingchoiceBox);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -183,7 +172,8 @@ public class DashBoardUserController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        setActionsCommandMenuItems(chooseCommandMenu);
+//        setActionsCommandMenuItems(chooseCommandMenu);
+
 
     }
 
@@ -205,8 +195,6 @@ public class DashBoardUserController implements Initializable {
         rightSidePanProfile.setVisible(false);
         rightSideLightControlPane.setVisible(false);
         rightSidePanBoard.setVisible(true);
-        rightSideHeatingControlPane.setVisible(false);
-        AcControllerPane.setVisible(false);
 
     }
 
@@ -216,15 +204,16 @@ public class DashBoardUserController implements Initializable {
         rightSideLightControlPane.setVisible(false);
         rightSidePanProfile.setVisible(true);
     }
-    public void setActionsCommandMenuItems(MenuButton menuButton){
+
+    public void setActionsCommandMenuItems(MenuButton menuButton) {
         menuButton.getItems().clear();
         choicCommandMenuItems.removeAll();
-        MenuItem turnOn=new MenuItem("Turn On Light");
-        MenuItem turnOf=new MenuItem("Turn Of Light");
-        MenuItem autoModeLight=new MenuItem("Auto Mode");
-        MenuItem increasStrength=new MenuItem("+");
-        MenuItem discreasStrength=new MenuItem("-");
-        choicCommandMenuItems.addAll(turnOn,turnOf,autoModeLight,increasStrength,discreasStrength);
+        MenuItem turnOn = new MenuItem("Turn On Light");
+        MenuItem turnOf = new MenuItem("Turn Of Light");
+        MenuItem autoModeLight = new MenuItem("Auto Mode");
+        MenuItem increasStrength = new MenuItem("+");
+        MenuItem discreasStrength = new MenuItem("-");
+        choicCommandMenuItems.addAll(turnOn, turnOf, autoModeLight, increasStrength, discreasStrength);
         menuButton.getItems().addAll(choicCommandMenuItems);
         turnOn.setOnAction(event -> {
             System.out.println("mmm");
@@ -305,13 +294,13 @@ public class DashBoardUserController implements Initializable {
     }
 
     public void updateUserNameAction(ActionEvent updateNameEvent) throws SQLException {
-        String email  = LogInController.getInctance().email();
+        String email = LogInController.getInctance().email();
         String newName = newNameText.getText();
         user.updateName(newName, email);
     }
 
     public void updateUserPasswordAction(ActionEvent updatePassEvent) throws SQLException {
-        String email  = LogInController.getInctance().email();
+        String email = LogInController.getInctance().email();
         String newPass = newPassText.getText();
         user.updatePass(newPass, email);
     }
@@ -329,16 +318,15 @@ public class DashBoardUserController implements Initializable {
 //    }
 
 
-    public void showLightControllerPane(ActionEvent showControllerPane){
+    public void showLightControllerPane(ActionEvent showControllerPane) {
         rightSideLightControlPane.setVisible(true);
     }
-
 
 
     public void laodPositionChoiceData(ChoiceBox<String> choosePositionBox) throws SQLException {
         choicOfPositions.removeAll();
         ArrayList<Position> allPositions = position.bringPositionNames();
-        for (Position position: allPositions) {
+        for (Position position : allPositions) {
             String posName = position.getPositionName();
             choicOfPositions.addAll(posName);
 
@@ -347,39 +335,152 @@ public class DashBoardUserController implements Initializable {
     }
 
 
-
-    public String getChoicOfPositions(ChoiceBox<String> choiceBox){
+    public String getChoicOfPositions(ChoiceBox<String> choiceBox) {
         String chosenPosition = choiceBox.getValue();
         return chosenPosition;
     }
 
+    public void veiwAllLightsInScrollPane(String chosenPosition) throws SQLException {
+        hBoxes.removeAll();
+        hBoxes.clear();
+        insidePaneVBox.getChildren().clear();
 
-    //--------- Heating Button Action---------
-    public void onHeatingButtonAction(){
-        rightSidePanBoard.setVisible(false);
-        profileBodyPane.setVisible(false);
-        rightSideLightControlPane.setVisible(false);
-        rightSidePanProfile.setVisible(false);
-        rightSideHeatingControlPane.setVisible(true);
-    }
+        ArrayList<Light> lights = light.bringAllLightsList(chosenPosition);
 
-    // --------- bringPositionNameToChoiceBox---------
-    public void laodPositionChoiceForAc() throws SQLException {
-        choicOfPosiForAc.removeAll();
-        ArrayList<Position> allPositions = position.bringPositionNames();
-        for (Position position: allPositions) {
-            String posName = position.getPositionName();
-            choicOfPosiForAc.addAll(posName);
+
+        for (Light light : lights) {
+
+            HBox newHbox = new HBox(createLabel(chosenPosition + String.valueOf(light.getLightId()), 60, 20), createColorPicker(light.getLightId()), createSlider(light.getLightId()));
+            newHbox.setPrefWidth(565);
+            newHbox.setSpacing(40);
+            hBoxes.addAll(newHbox);
+            insidePaneVBox.getChildren().addAll(newHbox);
 
         }
-        choiceBoxForAc.getItems().addAll(choicOfPosiForAc);
+
+
     }
 
-    //----- Ac Controller Button ------
-    public void onAcControllerAction(){
-        AcControllerPane.setVisible(true);
-        rightSideHeatingControlPane.setVisible(false);
 
+    public void showLights() throws SQLException {
+        String chosenPos = getChoicOfPositions(choosePositionBox);
+
+        veiwAllLightsInScrollPane(chosenPos);
+
+
+    }
+
+
+    private Label createLabel(String txt, double w, double h) {
+        Label label = new Label(txt);
+        label.setMinWidth(w);
+        label.setMinHeight(h);
+        return label;
+    }
+
+    private Button createButton(String bText, double w, double h) {
+        Button button = new Button();
+        button.setText(bText);
+        button.setMaxWidth(w);
+        button.setMaxHeight(h);
+        return button;
+    }
+
+    private Slider createSlider(int lightId) {
+        Slider slider = new Slider();
+
+        // The minimum value.
+        slider.setMin(0);
+
+        // The maximum value.
+        slider.setMax(1);
+
+        // Current value
+        slider.setValue(.5);
+
+        slider.setShowTickLabels(true);
+        slider.setShowTickMarks(true);
+
+        slider.setBlockIncrement(0.1);
+
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, //
+                                Number oldValue, Number newValue) {
+
+                try {
+                    light.saveLightStatuInDB(newValue, lightId);
+                    statuShowUpdate.setText("Light statu updated!");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                statuShow.setText(newValue.toString());
+
+
+
+            }
+        });
+        return slider;
+    }
+
+    public ColorPicker createColorPicker(int lightId) {
+
+
+        ColorPicker colorPicker = new ColorPicker();
+
+
+        colorPicker.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Color color = colorPicker.getValue();
+                int colorInt = color.hashCode();
+
+                String colorString = Integer.toHexString(colorInt);
+                System.out.println(colorString);
+
+                try {
+
+                    light.saveLightColorInDb(colorString, lightId);
+                    colorShow.setText(color.toString());
+                    colorShowUpdate.setText("Color changed!");
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
+        return colorPicker;
+    }
+
+
+    public void setPositionOfHbox(int yPostitionOfPreviousHbox) {
+
+    }
+
+    public void setHBOxToPane() {
+
+        hBoxes.clear();
+        PaneToScrollLight.getChildren().addAll(hBoxes);
+    }
+
+
+    //-----------------------------------    Heating Section------------------------------------------------
+
+
+    //------ bring positions for heating ----------
+    public void bringPositionChoiceData(ChoiceBox<String> choosePositionBox) throws SQLException {
+        choicOfPositionsForHeating.removeAll();
+        ArrayList<Position> allPositions = position.bringPositionNames();
+        for (Position position : allPositions) {
+            String posName = position.getPositionName();
+            choicOfPositionsForHeating.addAll(posName);
+
+        }
+        HeatingchoiceBox.getItems().addAll(choicOfPositionsForHeating);
     }
 
 }

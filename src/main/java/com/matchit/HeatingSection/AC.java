@@ -31,7 +31,11 @@ public class AC {
         this.temp = temp;
     }
 
-// Getter method
+    public void setAcID(int acID) {
+        this.acID = acID;
+    }
+
+    // Getter method
 
     public int getAcID() {
         return acID;

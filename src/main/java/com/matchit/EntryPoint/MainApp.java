@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import javafx.stage.StageStyle;
 
 
 public class MainApp extends Application {
@@ -20,6 +20,7 @@ public class MainApp extends Application {
         
         stage.setTitle("Smart Home");
         stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.show();
     }

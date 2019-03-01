@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -7,8 +8,8 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
@@ -46,7 +47,7 @@
                 <RowConstraints />
               </rowConstraints>
                <children>
-                  <Button fx:id="heatingButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onHeatingButtonAction" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" />
+                  <Button fx:id="heatingButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" />
                   <Button fx:id="securityButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.rowIndex="1" />
                   <Button fx:id="lightButton" alignment="CENTER" mnemonicParsing="false" onAction="#showLightControllerPane" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" />
                   <Button fx:id="kitchenButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="299.0" stylesheets="@../styles/DashboardStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -146,66 +147,59 @@
       <Separator layoutX="189.0" layoutY="102.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="0.0" />
       <Pane fx:id="rightSideLightControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" stylesheets="@../styles/DashboardStyle.css" visible="false">
          <children>
-            <Pane fx:id="ChoosePositionPane" layoutX="9.0" layoutY="10.0" prefHeight="173.0" prefWidth="248.0" stylesheets="@../styles/DashboardStyle.css">
+            <Pane fx:id="ChoosePositionPane" layoutX="9.0" layoutY="10.0" prefHeight="120.0" prefWidth="248.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
-                  <Separator layoutX="234.0" layoutY="19.0" orientation="VERTICAL" prefHeight="132.0" prefWidth="2.0" />
                   <ChoiceBox fx:id="choosePositionBox" layoutY="2.0" prefHeight="25.0" prefWidth="232.0" />
+                  <Button fx:id="showLights" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#showLights" prefHeight="38.0" prefWidth="117.0" text="Show Lights" />
                </children></Pane>
-            <Pane fx:id="StatuesPane" layoutX="265.0" layoutY="10.0" prefHeight="173.0" prefWidth="326.0" stylesheets="@../styles/DashboardStyle.css">
+            <Pane fx:id="StatuesPane" layoutX="265.0" layoutY="10.0" prefHeight="120.0" prefWidth="326.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
-                  <Label fx:id="lightStatuesLabel" layoutX="8.0" layoutY="4.0" text="Light Statues:" textFill="WHITE" />
-                  <VBox layoutX="14.0" layoutY="20.0" prefHeight="142.0" prefWidth="299.0">
-                     <children>
-                        <Label fx:id="onOffStatue" layoutX="10.0" layoutY="27.0" prefHeight="47.0" prefWidth="304.0" />
-                        <Label fx:id="strengthStatue" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="304.0" />
-                        <Label fx:id="colorStatue" layoutX="10.0" layoutY="59.0" prefHeight="49.0" prefWidth="310.0" />
-                     </children>
-                  </VBox>
+                  <Label fx:id="lightStatuesLabel" layoutX="8.0" layoutY="4.0" text="Light Statue:" textFill="WHITE" />
+                  <Label fx:id="statuShow" layoutX="30.0" layoutY="38.0" prefHeight="25.0" prefWidth="117.0" textFill="#909090" />
+                  <Label fx:id="statuShowUpdate" layoutX="170.0" layoutY="38.0" prefHeight="25.0" prefWidth="149.0" textFill="#909090" />
+                  <Label fx:id="colorShow" layoutX="30.0" layoutY="64.0" prefHeight="25.0" prefWidth="117.0" textFill="#909090" />
+                  <Label fx:id="colorShowUpdate" layoutX="169.0" layoutY="63.0" prefHeight="25.0" prefWidth="149.0" textFill="#909090" />
                </children></Pane>
-            <Pane fx:id="commandPane" layoutX="9.0" layoutY="196.0" prefHeight="318.0" prefWidth="581.0" stylesheets="@../styles/DashboardStyle.css">
+            <Pane fx:id="ccommandPane" layoutX="9.0" layoutY="139.0" prefHeight="375.0" prefWidth="581.0" stylesheets="@../styles/DashboardStyle.css">
                <children>
-                  <MenuButton fx:id="chooseCommandMenu" layoutX="14.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="556.0" text="Do something..">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </MenuButton>
                   <Label fx:id="updatedStatueLabel" layoutX="14.0" layoutY="14.0" text="Updated Statue:" textFill="#fcf8f8" />
-                  <VBox layoutX="14.0" layoutY="46.0" prefHeight="166.0" prefWidth="545.0">
-                     <children>
-                        <Label fx:id="updatedStatueOnOff" prefHeight="54.0" prefWidth="545.0" textFill="#fcf8f8" />
-                        <Label fx:id="updatedStatueStrength" layoutX="10.0" layoutY="64.0" prefHeight="54.0" prefWidth="545.0" textFill="#fcf8f8" />
-                        <Label fx:id="updatedStatueColor" layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="545.0" textFill="#fcf8f8" />
-                     </children>
-                  </VBox>
+                  <ScrollPane fx:id="ScrollPaneLightList" layoutX="14.0" layoutY="33.0" prefHeight="297.0" prefWidth="565.0">
+                     <content>
+                        <Pane fx:id="PaneToScrollLight" prefHeight="800.0" prefWidth="565.0">
+                           <children>
+                              <VBox fx:id="insidePaneVBox" prefHeight="800.0" prefWidth="565.0" />
+                           </children></Pane>
+                     </content>
+                  </ScrollPane>
                </children></Pane>
-            <Separator layoutX="106.0" layoutY="189.0" prefWidth="400.0" />
+            <Separator layoutX="106.0" layoutY="135.0" prefWidth="400.0" />
          </children>
       </Pane>
-      <Pane fx:id="rightSideHeatingControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false">
+      <Pane fx:id="rightSideHeatingControlPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0">
          <children>
-            <VBox layoutX="70.0" layoutY="11.0" prefHeight="502.0" prefWidth="454.0">
+            <ChoiceBox fx:id="HeatingchoiceBox" layoutX="50.0" layoutY="20.0" prefWidth="150.0" />
+            <Button layoutX="90.0" layoutY="100.0" mnemonicParsing="false" text="Show Status">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Separator layoutX="300.0" layoutY="4.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Separator layoutX="160.0" layoutY="204.0" prefWidth="300.0" />
+            <Label layoutX="305.0" layoutY="20.0" text="Heating Status:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="TempLabel" layoutX="305.0" layoutY="50.0" textFill="WHITE" />
+            <Pane layoutY="213.0" prefHeight="300.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onAcControllerAction" prefHeight="83.0" prefWidth="459.0" text="Ac Controller" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="459.0" text="Floor Ac Controller" />
-                  <Button layoutX="10.0" layoutY="93.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="459.0" text="Water Heater Controller" />
+                  <ScrollPane layoutX="3.0" layoutY="3.0" prefHeight="290.0" prefWidth="590.0">
+                     <content>
+                        <VBox fx:id="StatusVBox" prefHeight="280.0" prefWidth="550.0" />
+                     </content>
+                  </ScrollPane>
                </children>
-            </VBox>
-         </children>
-      </Pane>
-      <Pane fx:id="AcControllerPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false">
-         <children>
-            <ChoiceBox fx:id="choiceBoxForAc" layoutX="27.0" layoutY="11.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="AcIDchoiceBox" layoutX="200.0" layoutY="11.0" prefWidth="150.0" />
-            <MenuButton layoutX="400.0" layoutY="11.0" mnemonicParsing="false" text="MenuButton">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Increase" />
-                <MenuItem mnemonicParsing="false" text="Decrease" />
-              </items>
-            </MenuButton>
-            <TextArea fx:id="AcTextArea" layoutX="18.0" layoutY="280.0" prefHeight="195.0" prefWidth="519.0" />
+            </Pane>
          </children></Pane>
-      <Pane fx:id="FloorAcControllerPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false" />
-      <Pane fx:id="WaterHeaterControllerPane" layoutX="201.0" prefHeight="520.0" prefWidth="600.0" visible="false" />
    </children>
 </AnchorPane>

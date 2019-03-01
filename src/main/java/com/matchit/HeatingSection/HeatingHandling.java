@@ -4,9 +4,12 @@ import com.matchit.DB_Connection.ConnectionConfig;
 import com.matchit.Position.Position;
 
 
+import java.rmi.activation.ActivationID;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 public class HeatingHandling {
 
     Position positionObj = new Position();
@@ -55,22 +58,54 @@ public class HeatingHandling {
     //----------- get AcID using positionName -------
     public int bringAcIDByPositionName(String positionName) throws SQLException {
         int AcID = 0;
-        String ACIdQuery = "SELECT (AcID) FROM [AC] WHERE PositionID = ?";
-        PreparedStatement getAcIdSt = ConnectionConfig.prepareStatement(ACIdQuery);
-        getAcIdSt.setInt(1, positionObj.getPositionIDByName(positionName));
-        ResultSet posIdRs = getAcIdSt.executeQuery();
+        ArrayList<AC> AllAc = new ArrayList<>();
+        String ACIdQuery = "SELECT * FROM [AC] WHERE PositionID = ?";
+        PreparedStatement getAcSt = ConnectionConfig.prepareStatement(ACIdQuery);
+        getAcSt.setInt(1, positionObj.getPositionIDByName(positionName));
+
+
+        ResultSet posIdRs = getAcSt.executeQuery();
 
         while(posIdRs.next()){
 
             AcID = posIdRs.getInt("AcID");
+            System.out.println("AcID = " + AcID);
+
 
         }
         return AcID;
     }
 
-    // ----------
+    // ---------- Update temp for ac ---------
+    public void saveAcTemp(int Temp, int AcId) throws SQLException {
 
+        String UpdateQuery = "UPDATE [AC] SET Temp = ? WHERE AcID = ?";
+        PreparedStatement AcSt = ConnectionConfig.prepareStatement(UpdateQuery);
+        AcSt.setInt(1, AcId);
+        AcSt.setInt(2, Temp);
+        AcSt.executeUpdate();
+        System.out.println("Ac Temp updated !");
+    }
 
+    //---------- update temp for floorAc ----------
+    public void saveFloorAcTemp(int Temp, int AcId) throws SQLException {
+        String updateQuery = "UPDATE [FloorAC] SET Temp = ? WHERE AcID = ?";
+        PreparedStatement FloorAcSt = ConnectionConfig.prepareStatement(updateQuery);
+        FloorAcSt.setInt(1,Temp );
+        FloorAcSt.setInt(2, AcId);
+        FloorAcSt.executeUpdate();
+        System.out.println("FloorAc Temp updated !");
+    }
+
+    //--------- update temp for waterHeater ----------
+    public void saveWaterHeaterTemp(int Temp, int AcId) throws SQLException {
+        String updateQuery = "UPDATE [WaterHeater] SET Temp = ? WHERE WaterHeaterID = ?";
+        PreparedStatement WaterHeaterSt = ConnectionConfig.prepareStatement(updateQuery);
+        WaterHeaterSt.setInt(1, Temp);
+        WaterHeaterSt.setInt(2, AcId);
+        WaterHeaterSt.executeUpdate();
+        System.out.println("WaterHeater temp updated !");
+    }
 
 
 
